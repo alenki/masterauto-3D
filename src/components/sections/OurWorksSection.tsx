@@ -41,7 +41,7 @@ export default function OurWorksSection() {
             </li>
             <li className="flex items-start">
               <span className="text-purple-400 mr-3">•</span>
-              Мониторы на системе "Андройд"
+              Мониторы на системе &ldquo;Андройд&rdquo;
             </li>
             <li className="flex items-start">
               <span className="text-purple-400 mr-3">•</span>

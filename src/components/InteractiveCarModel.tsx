@@ -50,9 +50,12 @@ export default function InteractiveCarModel({
   const { scene } = useGLTF("/models/mersedes-benz_g63_amg.glb");
   useEffect(() => {
     if (!scene) return;
-    scene.traverse((child: any) => {
-      if (child.isMesh && child.material) {
-        const material = child.material as MeshStandardMaterial;
+    scene.traverse((child: Object3D) => {
+      if (
+        child instanceof Mesh &&
+        child.material instanceof MeshStandardMaterial
+      ) {
+        const material = child.material;
         if (material.map) {
           material.map.anisotropy = 16;
           material.map.minFilter = LinearMipmapLinearFilter;
