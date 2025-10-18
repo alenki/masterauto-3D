@@ -1,5 +1,5 @@
 // src/components/ColorControls.tsx
-'use client';
+"use client";
 
 interface ColorControlsProps {
   bodyColor: string;
@@ -20,14 +20,14 @@ export default function ColorControls({
   onBodyColorChange,
   onDetailsColorChange,
   onGlassColorChange,
-  onWheelSpeedChange
+  onWheelSpeedChange,
 }: ColorControlsProps) {
   return (
-    <div className="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-xl max-w-sm">
+    <div className="ml-25 mt-25 z-10 bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-xl max-w-sm">
       <h2 className="text-2xl font-bold text-gray-800 mb-4">
         🚗 Настройки Mercedes G63
       </h2>
-      
+
       <div className="space-y-4">
         {/* Цвет кузова */}
         <div className="flex items-center space-x-3">
@@ -95,9 +95,9 @@ export default function ColorControls({
           <div className="grid grid-cols-3 gap-2">
             <button
               onClick={() => {
-                onBodyColorChange('#ff0000');
-                onDetailsColorChange('#ffffff');
-                onGlassColorChange('#ffffff');
+                onBodyColorChange("#ff0000");
+                onDetailsColorChange("#ffffff");
+                onGlassColorChange("#ffffff");
               }}
               className="px-3 py-1 text-xs bg-red-500 text-white rounded hover:bg-red-600"
             >
@@ -105,9 +105,9 @@ export default function ColorControls({
             </button>
             <button
               onClick={() => {
-                onBodyColorChange('#0000ff');
-                onDetailsColorChange('#ffffff');
-                onGlassColorChange('#ffffff');
+                onBodyColorChange("#0000ff");
+                onDetailsColorChange("#ffffff");
+                onGlassColorChange("#ffffff");
               }}
               className="px-3 py-1 text-xs bg-blue-500 text-white rounded hover:bg-blue-600"
             >
@@ -115,9 +115,9 @@ export default function ColorControls({
             </button>
             <button
               onClick={() => {
-                onBodyColorChange('#000000');
-                onDetailsColorChange('#ffffff');
-                onGlassColorChange('#ffffff');
+                onBodyColorChange("#000000");
+                onDetailsColorChange("#ffffff");
+                onGlassColorChange("#ffffff");
               }}
               className="px-3 py-1 text-xs bg-black text-white rounded hover:bg-gray-800"
             >

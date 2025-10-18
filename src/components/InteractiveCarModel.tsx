@@ -222,6 +222,16 @@ export default function InteractiveCarModel({
     if (modelRef.current) {
       // Определяем позиции камеры для каждой секции
       const cameraPositions = [
+        // Hero
+        {
+          x: 0,
+          y: 0,
+          z: -9,
+          lookAt: [0, 0, 0],
+          rotationY: Math.PI * 1.5,
+          doors: [0, 0, 0, 0],
+          roof: 0,
+        },
         // ЭКСТЕРЬЕР (0-5)
         // Секция 0: Экстерьер Hero - общий вид машины спереди
         {
@@ -229,7 +239,7 @@ export default function InteractiveCarModel({
           y: 0,
           z: -9,
           lookAt: [0, 0, 0],
-          rotationY: Math.PI,
+          rotationY: Math.PI * 0.9,
           doors: [0, 0, 0, 0],
           roof: 0,
         },

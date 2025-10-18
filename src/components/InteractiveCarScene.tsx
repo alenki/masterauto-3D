@@ -24,6 +24,7 @@ import PlasticWrappingSection from "./sections/interior/PlasticWrappingSection";
 import ProtectiveGlassSection from "./sections/interior/ProtectiveGlassSection";
 
 // Общие секции
+import TopSection from "./sections/TopSection";
 import PowerSection from "./sections/ExtraServices";
 import PremiumSection from "./sections/OurWorksSection";
 import OurWorksSection from "./sections/CafeSection";
@@ -141,6 +142,19 @@ export default function InteractiveCarScene() {
 
       {/* Контент для скролла */}
       <div className="relative z-10">
+        {/* Hero */}
+        <TopSection />
+        {/* Панель управления */}
+        <ColorControls
+          bodyColor={bodyColor}
+          detailsColor={detailsColor}
+          glassColor={glassColor}
+          wheelSpeed={wheelSpeed}
+          onBodyColorChange={setBodyColor}
+          onDetailsColorChange={setDetailsColor}
+          onGlassColorChange={setGlassColor}
+          onWheelSpeedChange={setWheelSpeed}
+        />
         {/* Экстерьер секции */}
         <ExteriorHeroSection />
         <VinylWrappingSection
@@ -168,18 +182,6 @@ export default function InteractiveCarScene() {
         <OurWorksSection />
         <ContactFormSection />
       </div>
-
-      {/* Панель управления */}
-      <ColorControls
-        bodyColor={bodyColor}
-        detailsColor={detailsColor}
-        glassColor={glassColor}
-        wheelSpeed={wheelSpeed}
-        onBodyColorChange={setBodyColor}
-        onDetailsColorChange={setDetailsColor}
-        onGlassColorChange={setGlassColor}
-        onWheelSpeedChange={setWheelSpeed}
-      />
     </div>
   );
 }
