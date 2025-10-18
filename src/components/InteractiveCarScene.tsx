@@ -41,7 +41,7 @@ export default function InteractiveCarScene() {
   return (
     <div className="w-full">
       {/* Фиксированная 3D сцена */}
-      <div className="fixed inset-0 z-0 w-full h-full">
+      <div className="fixed inset-0 z-10 w-full h-full">
         <ScrollCarAnimation onScrollProgress={setScrollProgress}>
           <Canvas
             style={{ width: "100%", height: "100%" }}
@@ -55,9 +55,6 @@ export default function InteractiveCarScene() {
               toneMappingExposure: 1.2,
             }}
           >
-            {/* Set background color */}
-            <color attach="background" args={["#fff"]} />
-
             {/* Освещение */}
             <ambientLight intensity={0.6} />
             <directionalLight
@@ -141,9 +138,11 @@ export default function InteractiveCarScene() {
       </div>
 
       {/* Контент для скролла */}
-      <div className="relative z-10">
+      <div className="relative z-0">
         {/* Hero */}
         <TopSection />
+      </div>
+      <div className="relative z-10">
         {/* Панель управления */}
         <ColorControls
           bodyColor={bodyColor}

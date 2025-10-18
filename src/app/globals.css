@@ -2,8 +2,8 @@
 
 /* --------------- Fonts ---------------- */
 @font-face {
-    font-family: naas;
-    src: url(/fonts/NaaS.otf);
+    font-family: Anton;
+    src: url(/fonts/Anton.ttf);
     font-display: swap;
 }
 /* --------------- End of Fonts ---------------- */
@@ -13,19 +13,19 @@
   --foreground: #171717;
 }
 
-@theme inline {
+/* @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
+} */
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   background: var(--background);
@@ -34,9 +34,12 @@ body {
 }
 
 
-.custom-text-background{
-  font-family: naas;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+.custom-hero-text{
+  font-family: Anton;
+  font-size: 19.5vw;
+  font-weight: lighter;
+  line-height: 20vw;
+  /* text-shadow: 0 2px 8px rgba(0,0,0,0.5); */
 }
 .top-arrow-icon{
    width: 70px; height: 70px; 
