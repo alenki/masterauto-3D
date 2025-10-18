@@ -24,9 +24,9 @@ import PlasticWrappingSection from "./sections/interior/PlasticWrappingSection";
 import ProtectiveGlassSection from "./sections/interior/ProtectiveGlassSection";
 
 // Общие секции
-import PowerSection from "./sections/PowerSection";
-import PremiumSection from "./sections/PremiumSection";
-import OurWorksSection from "./sections/OurWorksSection";
+import PowerSection from "./sections/ExtraServices";
+import PremiumSection from "./sections/OurWorksSection";
+import OurWorksSection from "./sections/CafeSection";
 import ContactFormSection from "./sections/ContactFormSection";
 
 export default function InteractiveCarScene() {
