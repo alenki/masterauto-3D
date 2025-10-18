@@ -54,6 +54,9 @@ export default function InteractiveCarScene() {
               toneMappingExposure: 1.2,
             }}
           >
+            {/* Set background color */}
+            <color attach="background" args={["#fff"]} />
+
             {/* Освещение */}
             <ambientLight intensity={0.6} />
             <directionalLight
