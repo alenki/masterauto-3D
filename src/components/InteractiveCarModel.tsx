@@ -222,7 +222,7 @@ export default function InteractiveCarModel({
     if (modelRef.current) {
       // Определяем позиции камеры для каждой секции
       const cameraPositions = [
-        // Hero
+        // Секция 0: ЭкстерьерHero
         {
           x: 0,
           y: 0,
@@ -232,8 +232,8 @@ export default function InteractiveCarModel({
           doors: [0, 0, 0, 0],
           roof: 0,
         },
-        // ЭКСТЕРЬЕР (0-5)
-        // Секция 0: Экстерьер Hero - общий вид машины спереди
+        // ЭКСТЕРЬЕР (1-6)
+        // Секция 1: Экстерьер Hero - общий вид машины спереди
         {
           x: 0,
           y: 0,
@@ -243,7 +243,7 @@ export default function InteractiveCarModel({
           doors: [0, 0, 0, 0],
           roof: 0,
         },
-        // Секция 1: Оклейка винилом - фокус на кузове сбоку
+        // Секция 2: Оклейка винилом - фокус на кузове сбоку
         {
           x: 0,
           y: 0,
@@ -253,7 +253,7 @@ export default function InteractiveCarModel({
           doors: [0, 0, 0, 0],
           roof: 0,
         },
-        // Секция 2: Тонировка - фокус на стеклах
+        // Секция 3: Тонировка - фокус на стеклах
         {
           x: 0,
           y: 2,
@@ -263,7 +263,7 @@ export default function InteractiveCarModel({
           doors: [0, 0, 0, 0],
           roof: 0,
         },
-        // Секция 3: Выпрямление вмятин - детали кузова
+        // Секция 4: Выпрямление вмятин - детали кузова
         {
           x: 0,
           y: 0,
@@ -273,7 +273,7 @@ export default function InteractiveCarModel({
           doors: [0, 0, 0, 0],
           roof: 0,
         },
-        // Секция 4: Антигравийная пленка - передний бампер
+        // Секция 5: Антигравийная пленка - передний бампер
         {
           x: 0,
           y: 0,
@@ -283,7 +283,7 @@ export default function InteractiveCarModel({
           doors: [0, 0, 0, 0],
           roof: 0,
         },
-        // Секция 5: Подножки - вид снизу сбоку
+        // Секция 6: Подножки - вид снизу сбоку
         {
           x: 0,
           y: -2,
@@ -294,8 +294,8 @@ export default function InteractiveCarModel({
           roof: 0,
         },
 
-        // ИНТЕРЬЕР (6-10)
-        // Секция 6: Интерьер Hero - переход к салону
+        // ИНТЕРЬЕР (7-11)
+        // Секция 7: Интерьер Hero - переход к салону
         {
           x: 0,
           y: 2,
@@ -305,7 +305,7 @@ export default function InteractiveCarModel({
           doors: [0, 0, 0, 0],
           roof: 0,
         },
-        // Секция 7: Химчистка - салон с открытыми дверями
+        // Секция 8: Химчистка - салон с открытыми дверями
         {
           x: 0,
           y: 2,
@@ -315,7 +315,7 @@ export default function InteractiveCarModel({
           doors: [0.7, 0.7, 0.7, 0.7],
           roof: 0.7,
         },
-        // Секция 8: Полировка - сиденья
+        // Секция 9: Полировка - сиденья
         {
           x: 0,
           y: 2,
@@ -325,7 +325,7 @@ export default function InteractiveCarModel({
           doors: [0.7, 0.7, 0.7, 0.7],
           roof: 0.8,
         },
-        // Секция 9: Оклейка пластика - панель приборов
+        // Секция 10: Оклейка пластика - панель приборов
         {
           x: 0,
           y: 2,
@@ -335,7 +335,7 @@ export default function InteractiveCarModel({
           doors: [1, 1, 1, 1],
           roof: 1,
         },
-        // Секция 10: Защитное стекло - монитор
+        // Секция 11: Защитное стекло - монитор
         {
           x: 0,
           y: 1,
@@ -346,8 +346,8 @@ export default function InteractiveCarModel({
           roof: 1,
         },
 
-        // ОБЩИЕ (11-14)
-        // Секция 11: Power - вид сбоку
+        // ОБЩИЕ (12-15)
+        // Секция 12: Power - вид сбоку
         {
           x: 0,
           y: 1,
@@ -357,21 +357,11 @@ export default function InteractiveCarModel({
           doors: [1, 1, 1, 1],
           roof: 1,
         },
-        // Секция 12: Premium - вид сверху
+        // Секция 13: Premium - вид сверху
         {
           x: 0,
           y: 0,
           z: -9,
-          lookAt: [0, 0, 0],
-          rotationY: Math.PI * 0.4,
-          doors: [0, 0, 0, 0],
-          roof: 0,
-        },
-        // Секция 13: Our Works - галерея работ
-        {
-          x: 0,
-          y: 0,
-          z: -10,
           lookAt: [0, 0, 0],
           rotationY: Math.PI * 0.4,
           doors: [0, 0, 0, 0],
@@ -383,16 +373,27 @@ export default function InteractiveCarModel({
           y: 0,
           z: -10,
           lookAt: [0, 0, 0],
+          rotationY: Math.PI * 0.1,
+          doors: [0, 0, 0, 0],
+          roof: 0,
+        },
+        // Секция 15: Contact - контактная форма
+        {
+          x: 0,
+          y: 0,
+          z: -10,
+          lookAt: [0, 0, 0],
           rotationY: 0,
           doors: [0, 0, 0, 0],
           roof: 0,
         },
       ];
 
-      // Определяем текущую и следующую секцию (15 секций: 0-14)
-      const sectionIndex = Math.floor(scrollProgress * 15);
-      const nextSectionIndex = Math.min(sectionIndex + 1, 14);
-      const sectionProgress = scrollProgress * 15 - sectionIndex;
+      // Определяем текущую и следующую секцию
+      const totalSections = 16;
+      const sectionIndex = Math.floor(scrollProgress * totalSections);
+      const nextSectionIndex = Math.min(sectionIndex + 1, totalSections - 1);
+      const sectionProgress = scrollProgress * totalSections - sectionIndex;
 
       // Интерполяция между секциями
       const currentPos = cameraPositions[sectionIndex];

@@ -143,17 +143,6 @@ export default function InteractiveCarScene() {
         <TopSection />
       </div>
       <div className="relative z-10">
-        {/* Панель управления */}
-        <ColorControls
-          bodyColor={bodyColor}
-          detailsColor={detailsColor}
-          glassColor={glassColor}
-          wheelSpeed={wheelSpeed}
-          onBodyColorChange={setBodyColor}
-          onDetailsColorChange={setDetailsColor}
-          onGlassColorChange={setGlassColor}
-          onWheelSpeedChange={setWheelSpeed}
-        />
         {/* Экстерьер секции */}
         <ExteriorHeroSection />
         <VinylWrappingSection
