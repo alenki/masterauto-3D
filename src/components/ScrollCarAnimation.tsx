@@ -1,9 +1,9 @@
 // src/components/ScrollCarAnimation.tsx
-'use client';
+"use client";
 
-import { useEffect, useRef, useState } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,7 +12,10 @@ interface ScrollCarAnimationProps {
   onScrollProgress?: (progress: number) => void;
 }
 
-export default function ScrollCarAnimation({ children, onScrollProgress }: ScrollCarAnimationProps) {
+export default function ScrollCarAnimation({
+  children,
+  onScrollProgress,
+}: ScrollCarAnimationProps) {
   const carRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -33,17 +36,14 @@ export default function ScrollCarAnimation({ children, onScrollProgress }: Scrol
             const progress = self.progress;
             setScrollProgress(progress);
             onScrollProgress?.(progress);
-          }
-        }
+          },
+        },
       });
     }
   }, [onScrollProgress]);
 
   return (
-    <div 
-      ref={carRef} 
-      className="fixed inset-0 w-full h-full z-10"
-    >
+    <div ref={carRef} className="fixed inset-0 w-full h-full z-10">
       {children}
     </div>
   );
