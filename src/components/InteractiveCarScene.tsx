@@ -141,10 +141,10 @@ export default function InteractiveCarScene() {
       <div className="relative z-0">
         {/* Hero */}
         <TopSection />
+        <ExteriorHeroSection />
       </div>
       <div className="relative z-10">
         {/* Экстерьер секции */}
-        <ExteriorHeroSection />
         <VinylWrappingSection
           bodyColor={bodyColor}
           onBodyColorChange={setBodyColor}
@@ -156,9 +156,12 @@ export default function InteractiveCarScene() {
         <DentRemovalSection />
         <PPFSection />
         <RunningBoardsSection />
-
-        {/* Интерьер секции */}
+      </div>
+      <div className="relative z-10">
         <InteriorHeroSection />
+      </div>
+      <div className="relative z-10">
+        {/* Интерьер секции */}
         <ChemicalCleaningSection />
         <PolishingSection />
         <PlasticWrappingSection />

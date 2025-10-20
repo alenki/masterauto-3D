@@ -3,7 +3,7 @@
 /* --------------- Fonts ---------------- */
 @font-face {
     font-family: Anton;
-    src: url(/fonts/Anton.ttf);
+    src: url(/fonts/Anton.otf);
     font-display: swap;
 }
 /* --------------- End of Fonts ---------------- */
@@ -44,4 +44,18 @@ body {
 .top-arrow-icon{
    width: 70px; height: 70px; 
    transform: rotate(90deg);
+}
+
+.custom-exterior-hero-text{
+  font-family: Anton;
+  font-size: 24.5vw;
+  font-weight: lighter;
+  line-height: 20.0vw;
+}
+
+.custom-interior-hero-text{
+  font-family: Anton;
+  font-size: 24.5vw;
+  font-weight: lighter;
+  line-height: 20.0vw;
 }
