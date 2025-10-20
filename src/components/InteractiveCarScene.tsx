@@ -25,9 +25,8 @@ import ProtectiveGlassSection from "./sections/interior/ProtectiveGlassSection";
 
 // Общие секции
 import TopSection from "./sections/TopSection";
-import PowerSection from "./sections/ExtraServices";
-import PremiumSection from "./sections/OurWorksSection";
-import OurWorksSection from "./sections/CafeSection";
+import ExtraServices from "./sections/ExtraServices";
+import CafeSection from "./sections/CafeSection";
 import ContactFormSection from "./sections/ContactFormSection";
 
 export default function InteractiveCarScene() {
@@ -156,21 +155,19 @@ export default function InteractiveCarScene() {
         <DentRemovalSection />
         <PPFSection />
         <RunningBoardsSection />
-      </div>
-      <div className="relative z-10">
-        <InteriorHeroSection />
-      </div>
-      <div className="relative z-10">
+
         {/* Интерьер секции */}
+        <InteriorHeroSection />
         <ChemicalCleaningSection />
         <PolishingSection />
         <PlasticWrappingSection />
         <ProtectiveGlassSection />
-
+      </div>
+      <div className="relative z-0">{/* <ExtraServicesHero /> */}</div>
+      <div className="relative z-10">
         {/* Общие секции */}
-        <PowerSection />
-        <PremiumSection />
-        <OurWorksSection />
+        <ExtraServices />
+        <CafeSection />
         <ContactFormSection />
       </div>
     </div>

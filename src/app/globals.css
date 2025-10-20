@@ -53,9 +53,16 @@ body {
   line-height: 20.0vw;
 }
 
+.custom-extraservices-hero-text{
+  font-family: Anton;
+  font-size: 7.5rem;
+  font-weight: lighter;
+  line-height: 8rem;
+}
+
 .custom-interior-hero-text{
   font-family: Anton;
-  font-size: 24.5vw;
+  font-size: 27.5vw;
   font-weight: lighter;
   line-height: 20.0vw;
 }

@@ -1,4 +1,4 @@
-export default function OurWorksSection() {
+export default function CafeSection() {
   return (
     <section className="h-screen flex items-center justify-end pr-20">
       <div className="text-white bg-black/20 backdrop-blur-sm rounded-2xl p-8 max-w-lg">
