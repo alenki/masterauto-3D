@@ -373,24 +373,24 @@ export default function InteractiveCarModel({
           y: 0,
           z: -10,
           lookAt: [0, 0, 0],
-          rotationY: Math.PI * 0.1,
+          rotationY: Math.PI * 0,
           doors: [0, 0, 0, 0],
           roof: 0,
         },
-        // Секция 15: Contact - контактная форма
+        //Extra
         {
           x: 0,
           y: 0,
           z: -10,
           lookAt: [0, 0, 0],
-          rotationY: 0,
+          rotationY: Math.PI * 0,
           doors: [0, 0, 0, 0],
           roof: 0,
         },
       ];
 
       // Определяем текущую и следующую секцию
-      const totalSections = 16;
+      const totalSections = 15;
       const sectionIndex = Math.floor(scrollProgress * totalSections);
       const nextSectionIndex = Math.min(sectionIndex + 1, totalSections - 1);
       const sectionProgress = scrollProgress * totalSections - sectionIndex;

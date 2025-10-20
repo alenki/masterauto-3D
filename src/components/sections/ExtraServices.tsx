@@ -1,8 +1,8 @@
 export default function ExtraServices() {
   return (
     <section className="h-screen flex flex-col items-center justify-center">
-      <div className="bg-black/20 backdrop-blur-sm rounded-2xl p-8 max-w-7xl">
-        <h2 className="custom-extraservices-hero-text font-bold mb-21 text-white ">
+      <div className="bg-black/20 backdrop-blur-sm rounded-2xl p-8 max-w-7xl text">
+        <h2 className="custom-extraservices-hero-text font-bold mb-13 text-white text-center">
           ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ
         </h2>
         <div className="flex flex-row">
