@@ -28,6 +28,7 @@ import TopSection from "./sections/TopSection";
 import ExtraServices from "./sections/ExtraServices";
 import CafeSection from "./sections/CafeSection";
 import ContactFormSection from "./sections/ContactFormSection";
+import FooterHeading from "./sections/FooterHeading";
 
 export default function InteractiveCarScene() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -163,11 +164,15 @@ export default function InteractiveCarScene() {
         <PlasticWrappingSection />
         <ProtectiveGlassSection />
       </div>
-      <div className="relative z-0">{/* <ExtraServicesHero /> */}</div>
       <div className="relative z-10">
         {/* Общие секции */}
         <ExtraServices />
         <CafeSection />
+      </div>
+      <div className="relative z-0">
+        <FooterHeading />
+      </div>
+      <div className="relative z-10">
         <ContactFormSection />
       </div>
     </div>
