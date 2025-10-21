@@ -144,7 +144,7 @@ export default function ContactFormSection() {
               />
               <button
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 font-bold py-3 rounded transition cursor-pointer"
+                className="w-full bg-red-700 hover:bg-red-800 font-bold py-3 rounded transition cursor-pointer"
               >
                 Отправить
               </button>

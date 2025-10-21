@@ -64,15 +64,15 @@ export default function DentRemovalSection() {
         </h2>
         <ul className="space-y-3 text-lg relative z-10">
           <li className="flex items-start">
-            <span className="text-green-400 mr-3">•</span>
+            <span className="mr-3">•</span>
             Выпрямление вмятин без покраски
           </li>
           <li className="flex items-start">
-            <span className="text-green-400 mr-3">•</span>
+            <span className="mr-3">•</span>
             Немецкое оборудование
           </li>
           <li className="flex items-start">
-            <span className="text-green-400 mr-3">•</span>
+            <span className="mr-3">•</span>
             Экономия времени и денег
           </li>
         </ul>

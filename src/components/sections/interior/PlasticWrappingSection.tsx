@@ -65,11 +65,11 @@ export default function PlasticWrappingSection() {
         <p className="text-lg mb-4 relative z-10">Защита и стиль салона</p>
         <ul className="space-y-3 text-lg relative z-10">
           <li className="flex items-start">
-            <span className="text-purple-400 mr-3">•</span>
+            <span className=" mr-3">•</span>
             Виниловые покрытия
           </li>
           <li className="flex items-start">
-            <span className="text-purple-400 mr-3">•</span>
+            <span className=" mr-3">•</span>
             Карбоновые текстуры
           </li>
         </ul>

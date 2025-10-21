@@ -99,7 +99,7 @@ export default function VinylWrappingSection({
         <div className="mt-4 p-3 liquid-glass rounded-lg relative z-10">
           <div className="relative z-10">
             <p className="text-sm text-gray-300 relative z-10">
-              Текущий цвет: <span className="text-yellow-400">{bodyColor}</span>
+              Текущий цвет: <span className="">{bodyColor}</span>
             </p>
           </div>
         </div>
@@ -112,15 +112,15 @@ export default function VinylWrappingSection({
         </h2>
         <ul className="space-y-3 text-lg relative z-10">
           <li className="flex items-start">
-            <span className="text-yellow-400 mr-3">•</span>
+            <span className=" mr-3">•</span>
             Большой выбор цветовой гаммы
           </li>
           <li className="flex items-start">
-            <span className="text-yellow-400 mr-3">•</span>
+            <span className=" mr-3">•</span>
             Защита кузова от царапин
           </li>
           <li className="flex items-start">
-            <span className="text-yellow-400 mr-3">•</span>
+            <span className=" mr-3">•</span>
             Создание личного дизайна
           </li>
         </ul>

@@ -68,15 +68,15 @@ export default function RunningBoardsSection() {
         </p>
         <ul className="space-y-3 text-lg relative z-10">
           <li className="flex items-start">
-            <span className="text-purple-400 mr-3">•</span>
+            <span className=" mr-3">•</span>
             Электрический привод
           </li>
           <li className="flex items-start">
-            <span className="text-purple-400 mr-3">•</span>
+            <span className=" mr-3">•</span>
             Автоматическое выдвижение
           </li>
           <li className="flex items-start">
-            <span className="text-purple-400 mr-3">•</span>
+            <span className=" mr-3">•</span>
             Удобная посадка в салон
           </li>
         </ul>

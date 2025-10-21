@@ -71,15 +71,15 @@ export default function ExtraServices() {
             </p>
             <ul className="space-y-3 text-lg relative z-10">
               <li className="flex items-start">
-                <span className="text-purple-400 mr-3">•</span>
+                <span className=" mr-3">•</span>
                 Полировка кузова
               </li>
               <li className="flex items-start">
-                <span className="text-purple-400 mr-3">•</span>
+                <span className=" mr-3">•</span>
                 Керамическая защита
               </li>
               <li className="flex items-start">
-                <span className="text-purple-400 mr-3">•</span>
+                <span className=" mr-3">•</span>
                 Автомойка
               </li>
             </ul>
@@ -94,19 +94,19 @@ export default function ExtraServices() {
             </p>
             <ul className="space-y-3 text-lg relative z-10">
               <li className="flex items-start">
-                <span className="text-purple-400 mr-3">•</span>
+                <span className=" mr-3">•</span>
                 Автосигнализации с автозапуском
               </li>
               <li className="flex items-start">
-                <span className="text-purple-400 mr-3">•</span>
+                <span className=" mr-3">•</span>
                 Электромеханический замок
               </li>
               <li className="flex items-start">
-                <span className="text-purple-400 mr-3">•</span>
+                <span className=" mr-3">•</span>
                 Мониторы на системе &ldquo;Андройд&rdquo;
               </li>
               <li className="flex items-start">
-                <span className="text-purple-400 mr-3">•</span>
+                <span className=" mr-3">•</span>
                 Программный чип тюнинг
               </li>
             </ul>
@@ -120,19 +120,19 @@ export default function ExtraServices() {
             </p>
             <ul className="space-y-3 text-lg relative z-10">
               <li className="flex items-start">
-                <span className="text-purple-400 mr-3">•</span>
+                <span className=" mr-3">•</span>
                 Переднюю или заднюю оптику
               </li>
               <li className="flex items-start">
-                <span className="text-purple-400 mr-3">•</span>
+                <span className=" mr-3">•</span>
                 Решетку радиатора
               </li>
               <li className="flex items-start">
-                <span className="text-purple-400 mr-3">•</span>
+                <span className=" mr-3">•</span>
                 Бамперы
               </li>
               <li className="flex items-start">
-                <span className="text-purple-400 mr-3">•</span>
+                <span className=" mr-3">•</span>
                 Дизайн легкосплавных дисков
               </li>
             </ul>

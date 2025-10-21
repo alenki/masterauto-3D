@@ -114,15 +114,15 @@ export default function TintingSection({
             </h3>
             <ul className="space-y-2 text-lg">
               <li className="flex items-start">
-                <span className="text-blue-400 mr-3">•</span>
+                <span className=" mr-3">•</span>
                 Тонировка по ГОСТУ
               </li>
               <li className="flex items-start">
-                <span className="text-blue-400 mr-3">•</span>
+                <span className=" mr-3">•</span>
                 Атермальная пленка
               </li>
               <li className="flex items-start">
-                <span className="text-blue-400 mr-3">•</span>
+                <span className=" mr-3">•</span>
                 Архитектурная пленка
               </li>
             </ul>
@@ -169,7 +169,7 @@ export default function TintingSection({
 
         <div className="mt-6 p-3 liquid-glass rounded-lg relative z-10">
           <p className="text-sm text-gray-300 relative z-10">
-            Текущий тон: <span className="text-blue-400">{glassColor}</span>
+            Текущий тон: <span className="">{glassColor}</span>
           </p>
         </div>
       </div>

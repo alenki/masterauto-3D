@@ -66,23 +66,23 @@ export default function PPFSection() {
           <p className="text-lg mb-4">Качественная пленка защищает авто от:</p>
           <ul className="space-y-2 text-lg">
             <li className="flex items-start">
-              <span className="text-red-400 mr-3">•</span>
+              <span className=" mr-3">•</span>
               Сколов и царапин
             </li>
             <li className="flex items-start">
-              <span className="text-red-400 mr-3">•</span>
+              <span className=" mr-3">•</span>
               Пескоструя
             </li>
             <li className="flex items-start">
-              <span className="text-red-400 mr-3">•</span>
+              <span className=" mr-3">•</span>
               Хим реагентов
             </li>
             <li className="flex items-start">
-              <span className="text-red-400 mr-3">•</span>
+              <span className=" mr-3">•</span>
               Вандалов
             </li>
             <li className="flex items-start">
-              <span className="text-red-400 mr-3">•</span>
+              <span className=" mr-3">•</span>
               Небольших ДТП
             </li>
           </ul>

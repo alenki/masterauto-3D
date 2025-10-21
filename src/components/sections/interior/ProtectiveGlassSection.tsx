@@ -62,17 +62,15 @@ export default function ProtectiveGlassSection() {
         <h2 className="text-4xl font-bold mb-6 relative z-10">
           ЗАЩИТНОЕ СТЕКЛО
         </h2>
-        <p className="text-lg mb-4 relative z-10">Для мониторов и панелей</p>
+        <p className="text-lg mb-4 relative z-10">Для мониторов и панелей:</p>
         <ul className="space-y-3 text-lg relative z-10">
           <li className="items-start">
-            <span className="text-purple-400 mr-3">•</span>
+            <span className=" mr-3">•</span>
             Антибликовое покрытие
-            <span className="text-purple-400 ml-3">•</span>
           </li>
           <li className="items-start">
-            <span className="text-purple-400 mr-3">•</span>
+            <span className=" mr-3">•</span>
             Защита от царапин
-            <span className="text-purple-400 ml-3">•</span>
           </li>
         </ul>
       </div>

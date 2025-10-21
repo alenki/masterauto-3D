@@ -66,11 +66,11 @@ export default function PolishingSection() {
           <p className="text-lg mb-4">Восстановление блеска поверхностей</p>
           <ul className="space-y-2 text-lg">
             <li className="flex items-start">
-              <span className="text-red-400 mr-3">•</span>
+              <span className=" mr-3">•</span>
               Полировка всех лакированных вставок салона автомобиля
             </li>
             <li className="flex items-start">
-              <span className="text-red-400 mr-3">•</span>
+              <span className=" mr-3">•</span>
               Нанесение керамики на все лакированные вставки салона автомобиля
             </li>
           </ul>
