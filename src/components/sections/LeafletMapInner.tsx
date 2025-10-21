@@ -9,15 +9,22 @@ import {
   GeoJSON,
   useMap,
 } from "react-leaflet";
+import type { FeatureCollection } from "geojson";
 import L, { LatLngExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 // Fix for default marker icons
-delete (L.Icon.Default.prototype as any)._getIconUrl;
+const iconProto = L.Icon.Default.prototype as unknown as {
+  _getIconUrl?: () => string;
+};
+delete iconProto._getIconUrl;
+import iconRetinaUrl from "leaflet/dist/images/marker-icon-2x.png";
+import iconUrl from "leaflet/dist/images/marker-icon.png";
+import shadowUrl from "leaflet/dist/images/marker-shadow.png";
 L.Icon.Default.mergeOptions({
-  iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
-  iconUrl: require("leaflet/dist/images/marker-icon.png"),
-  shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
+  iconRetinaUrl,
+  iconUrl,
+  shadowUrl,
 });
 
 export type Point = {
@@ -84,7 +91,11 @@ export default function LeafletMapInner({
         ))}
         <FitToMarkers points={points} />
         {showGeoJson && (
-          <GeoJSON data={{ type: "FeatureCollection", features: [] }} />
+          <GeoJSON
+            data={
+              { type: "FeatureCollection", features: [] } as FeatureCollection
+            }
+          />
         )}
       </MapContainer>
     </div>

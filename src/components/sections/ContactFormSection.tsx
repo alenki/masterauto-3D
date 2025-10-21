@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import LeafletMap from "./LeafletMap";
+import LeafletMap, { type Point } from "./LeafletMap";
 
 export default function ContactFormSection() {
   const [formData, setFormData] = useState({
@@ -16,7 +16,7 @@ export default function ContactFormSection() {
     alert("Спасибо за обращение! Мы свяжемся с вами.");
   };
 
-  const points = [
+  const points: Point[] = [
     {
       id: "a",
       title: "A",
@@ -24,7 +24,7 @@ export default function ContactFormSection() {
       coords: [43.518998, 43.655673],
     },
   ];
-  const center = [43.518998, 43.655673];
+  const center: [number, number] = [43.518998, 43.655673];
   const zoom = 1;
 
   return (
