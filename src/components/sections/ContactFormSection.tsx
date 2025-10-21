@@ -30,9 +30,66 @@ export default function ContactFormSection() {
   return (
     <section className="h-[75vh] flex items-start justify-start">
       <div className="flex flex-col items-center justify-center px-20 pt-13 w-full">
-        <div className="bg-black/10 backdrop-blur-md p-8 rounded-xl w-full max-w-310 flex">
+        {/* <!-- SVG Filter --> */}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          role="presentation"
+          className="hidden"
+        >
+          <filter
+            id="glass-distortion"
+            x="0%"
+            y="0%"
+            width="100%"
+            height="100%"
+            filterUnits="objectBoundingBox"
+          >
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.001 0.005"
+              numOctaves="1"
+              seed="17"
+              result="turbulence"
+            />
+            <feComponentTransfer in="turbulence" result="mapped">
+              <feFuncR type="gamma" amplitude="1" exponent="10" offset="0.5" />
+              <feFuncG type="gamma" amplitude="0" exponent="1" offset="0" />
+              <feFuncB type="gamma" amplitude="0" exponent="1" offset="0.5" />
+            </feComponentTransfer>
+            <feGaussianBlur in="turbulence" stdDeviation="3" result="softMap" />
+            <feSpecularLighting
+              in="softMap"
+              surfaceScale="5"
+              specularConstant="1"
+              specularExponent="100"
+              lightingColor="white"
+              result="specLight"
+            >
+              <fePointLight x="-200" y="-200" z="300" />
+            </feSpecularLighting>
+            <feComposite
+              in="specLight"
+              operator="arithmetic"
+              k1="0"
+              k2="1"
+              k3="1"
+              k4="0"
+              result="litImage"
+            />
+            <feDisplacementMap
+              in="SourceGraphic"
+              in2="softMap"
+              scale="200"
+              xChannelSelector="R"
+              yChannelSelector="G"
+            />
+          </filter>
+        </svg>
+        {/* <!-- SVG Filter --> */}
+
+        <div className="liquid-glass p-8 rounded-4xl w-full max-w-310 flex">
           {/* Map */}
-          <div className="w-[100%]">
+          <div className="w-[100%] relative z-10">
             <div className="p-6 pr-25 h-[100%]">
               <LeafletMap
                 className="w-[100%]"
@@ -45,7 +102,7 @@ export default function ContactFormSection() {
           </div>
 
           {/* Form */}
-          <div className="max-w-md ml-auto p-6">
+          <div className="max-w-md ml-auto p-6 relative z-10">
             <form onSubmit={handleSubmit} className="space-y-4">
               <input
                 type="text"
@@ -54,7 +111,7 @@ export default function ContactFormSection() {
                 onChange={(e) =>
                   setFormData({ ...formData, name: e.target.value })
                 }
-                className="w-full px-4 py-3 rounded bg-white/20 text-white placeholder-white/60 border border-white/30"
+                className="w-full px-4 py-3 rounded liquid-glass placeholder-white/60 border border-white/30"
                 required
               />
               <input
@@ -64,7 +121,7 @@ export default function ContactFormSection() {
                 onChange={(e) =>
                   setFormData({ ...formData, email: e.target.value })
                 }
-                className="w-full px-4 py-3 rounded bg-white/20 text-white placeholder-white/60 border border-white/30"
+                className="w-full px-4 py-3 rounded liquid-glass placeholder-white/60 border border-white/30"
                 required
               />
               <input
@@ -74,7 +131,7 @@ export default function ContactFormSection() {
                 onChange={(e) =>
                   setFormData({ ...formData, phone: e.target.value })
                 }
-                className="w-full px-4 py-3 rounded bg-white/20 text-white placeholder-white/60 border border-white/30"
+                className="w-full px-4 py-3 rounded liquid-glass placeholder-white/60 border border-white/30"
               />
               <textarea
                 placeholder="Сообщение"
@@ -82,12 +139,12 @@ export default function ContactFormSection() {
                 onChange={(e) =>
                   setFormData({ ...formData, message: e.target.value })
                 }
-                className="w-full px-4 py-3 rounded bg-white/20 text-white placeholder-white/60 border border-white/30 h-32"
+                className="w-full px-4 py-3 rounded liquid-glass placeholder-white/60 border border-white/30 h-32"
                 required
               />
               <button
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded transition"
+                className="w-full bg-blue-600 hover:bg-blue-700 font-bold py-3 rounded transition cursor-pointer"
               >
                 Отправить
               </button>
