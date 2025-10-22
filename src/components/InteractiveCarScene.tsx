@@ -3,7 +3,7 @@ import ScrollCarAnimation from "./ScrollCarAnimation";
 
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Environment, Grid } from "@react-three/drei";
-import { useState, Suspense  } from "react";
+import { useState, useEffect, Suspense  } from "react";
 import InteractiveCarModel from "./InteractiveCarModel";
 import ColorControls from "./ColorControls";
 import * as THREE from "three";
@@ -38,9 +38,45 @@ export default function InteractiveCarScene() {
   const [showDebugger, setShowDebugger] = useState(false);
   const [modelLoaded, setModelLoaded] = useState(false);
 
+  // Disable scroll when loading
+  useEffect(() => {
+    if (modelLoaded) return; // nothing to do if already loaded
+
+    // Save current styles / scroll position
+    const doc = document.documentElement;
+    const body = document.body;
+    const prevHtmlOverflow = doc.style.overflow;
+    const prevBodyOverflow = body.style.overflow;
+    const prevHtmlTouchAction = doc.style.touchAction;
+    const scrollY = window.scrollY || window.pageYOffset;
+
+    // Lock scroll: set fixed position to avoid jump, and hide overflow
+    // We set top to negative scrollY so page doesn't visually jump to top.
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    doc.style.overflow = "hidden";
+    body.style.overflow = "hidden";
+    doc.style.touchAction = "none"; // prevent touch scrolling on mobile
+
+    // cleanup: restore everything
+    return () => {
+      doc.style.overflow = prevHtmlOverflow;
+      body.style.overflow = prevBodyOverflow;
+      doc.style.touchAction = prevHtmlTouchAction;
+      body.style.position = "";
+      body.style.top = "";
+
+      // restore scroll position
+      window.scrollTo(0, scrollY);
+    };
+  }, [modelLoaded]);
+
   return (
     
     <div className="w-full">
+      <div className="fixed w-full h-full z-15">
+        
+      </div>
       {/* Фиксированная 3D сцена */}
       <div className="fixed inset-0 z-10 w-full h-full">
         <ScrollCarAnimation onScrollProgress={setScrollProgress}>
@@ -48,8 +84,12 @@ export default function InteractiveCarScene() {
       {/* Local loading overlay */}
       {!modelLoaded && (
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-white z-10">
-          <div className="h-10 w-10 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin" />
-          <p className="mt-3 text-gray-600">MASTER AUTO LOADING...</p>
+          <div className="loader">
+              <div className="circle"></div>
+              <div className="circle"></div>
+              <div className="circle"></div>
+              <div className="circle"></div>
+          </div>
         </div>
       )}
         <Suspense fallback={null}>
