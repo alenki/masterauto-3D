@@ -166,12 +166,6 @@ export default function TintingSection({
             <span>Максимальная</span>
           </div>
         </div>
-
-        <div className="mt-6 p-3 liquid-glass rounded-lg relative z-10">
-          <p className="text-sm text-gray-300 relative z-10">
-            Текущий тон: <span className="">{glassColor}</span>
-          </p>
-        </div>
       </div>
     </section>
   );

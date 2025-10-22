@@ -8,10 +8,13 @@ export default function VinylWrappingSection({
   onBodyColorChange,
 }: VinylWrappingSectionProps) {
   const vinylColors = [
-    { name: "Темно-синий", color: "#1e3a8a", bg: "bg-blue-900" },
+    { name: "Черный", color: "#000", bg: "bg-black" },
+    { name: "Белый", color: "#fff", bg: "bg-white" },
+    { name: "Красный", color: "#ff0000", bg: "bg-red-700" },
     { name: "Темно-красный", color: "#7f1d1d", bg: "bg-red-900" },
+    { name: "Синий", color: "#1e3a8a", bg: "bg-blue-800" },
+    { name: "Темно-синий", color: "#374151", bg: "bg-blue-950" },
     { name: "Темно-зеленый", color: "#14532d", bg: "bg-green-900" },
-    { name: "Темно-серый", color: "#374151", bg: "bg-gray-700" },
     { name: "Темно-фиолетовый", color: "#581c87", bg: "bg-purple-900" },
     { name: "Темно-оранжевый", color: "#9a3412", bg: "bg-orange-900" },
     { name: "Темно-коричневый", color: "#451a03", bg: "bg-amber-900" },
@@ -88,20 +91,12 @@ export default function VinylWrappingSection({
               onClick={() => onBodyColorChange(vinyl.color)}
               className={`${
                 vinyl.bg
-              } p-3 rounded-lg text-white text-sm font-medium hover:scale-105 transition-transform cursor-pointer ${
+              } p-4.5 rounded-lg text-white text-sm font-medium hover:scale-105 transition-transform cursor-pointer ${
                 bodyColor === vinyl.color ? "ring-2 ring-yellow-400" : ""
               }`}
             >
-              {vinyl.name}
             </button>
           ))}
-        </div>
-        <div className="mt-4 p-3 liquid-glass rounded-lg relative z-10">
-          <div className="relative z-10">
-            <p className="text-sm text-gray-300 relative z-10">
-              Текущий цвет: <span className="">{bodyColor}</span>
-            </p>
-          </div>
         </div>
       </div>
 
