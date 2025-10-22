@@ -7,6 +7,7 @@ export default function TopSection() {
         alt="arrow icon"
         className="mt-auto mb-21 top-arrow-icon"
       ></img> */}
+      
     </section>
   );
 }
