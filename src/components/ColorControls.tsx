@@ -46,7 +46,7 @@ export default function ColorControls({
         {/* Цвет деталей */}
         <div className="flex items-center space-x-3">
           <label className="text-sm font-medium text-gray-700 w-16">
-            Фон:
+            Детали:
           </label>
           <input
             type="color"

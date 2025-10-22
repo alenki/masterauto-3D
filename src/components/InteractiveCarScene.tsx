@@ -4,7 +4,7 @@ import ScrollCarAnimation from "./ScrollCarAnimation";
 
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Environment, Grid } from "@react-three/drei";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import InteractiveCarModel from "./InteractiveCarModel";
 import ColorControls from "./ColorControls";
 import * as THREE from "three";
@@ -33,20 +33,10 @@ import FooterHeading from "./sections/FooterHeading";
 export default function InteractiveCarScene() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [bodyColor, setBodyColor] = useState("#ff0000");
-  const [bgColor, setbgColor] = useState("#ffffff");
+  const [detailsColor, setDetailsColor] = useState("#ffffff");
   const [glassColor, setGlassColor] = useState("#ffffff");
   const [wheelSpeed, setWheelSpeed] = useState(1.0);
   const [showDebugger, setShowDebugger] = useState(false);
-
-  useEffect(() => {
-    // Set background color
-    document.body.style.backgroundColor = bgColor;
-
-    // Cleanup (optional)
-    return () => {
-      document.body.style.backgroundColor = "";
-    };
-  }, [bgColor]);
 
   return (
     <div className="w-full">
@@ -126,7 +116,7 @@ export default function InteractiveCarScene() {
             <group position={[0, -1, 0]}>
               <InteractiveCarModel
                 bodyColor={bodyColor}
-                detailsColor={bgColor}
+                detailsColor={detailsColor}
                 glassColor={glassColor}
                 wheelSpeed={wheelSpeed}
                 scrollProgress={scrollProgress}
@@ -151,20 +141,6 @@ export default function InteractiveCarScene() {
       <div className="relative z-0">
         {/* Hero */}
         <TopSection />
-      </div>
-      <div className="relative z-10">
-        <ColorControls
-          bodyColor={bodyColor}
-          detailsColor={bgColor}
-          glassColor={glassColor}
-          wheelSpeed={wheelSpeed}
-          onBodyColorChange={setBodyColor}
-          onDetailsColorChange={setbgColor}
-          onGlassColorChange={setGlassColor}
-          onWheelSpeedChange={setWheelSpeed}
-        />
-      </div>
-      <div className="relative z-0">
         <ExteriorHeroSection />
       </div>
       <div className="relative z-10">
