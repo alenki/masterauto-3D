@@ -24,6 +24,7 @@ interface CarModelProps {
   glassColor: string;
   wheelSpeed: number;
   scrollProgress?: number; // Добавляем прогресс скролла
+  onLoaded?: () => void;
 }
 
 // Интерфейс для анимируемых частей автомобиля
@@ -46,8 +47,14 @@ export default function InteractiveCarModel({
   glassColor,
   wheelSpeed,
   scrollProgress = 0,
+  onLoaded,
 }: CarModelProps) {
   const { scene } = useGLTF("/models/mersedes-benz_g63_amg.glb");
+  useEffect(() => {
+    if (scene && onLoaded) {
+      onLoaded();
+    }
+  }, [scene, onLoaded]);
   useEffect(() => {
     if (!scene) return;
     scene.traverse((child: Object3D) => {

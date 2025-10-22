@@ -1,10 +1,9 @@
-// src/components/InteractiveCarScene.tsx
 "use client";
 import ScrollCarAnimation from "./ScrollCarAnimation";
 
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Environment, Grid } from "@react-three/drei";
-import { useState } from "react";
+import { useState, Suspense  } from "react";
 import InteractiveCarModel from "./InteractiveCarModel";
 import ColorControls from "./ColorControls";
 import * as THREE from "three";
@@ -37,12 +36,23 @@ export default function InteractiveCarScene() {
   const [glassColor, setGlassColor] = useState("#ffffff");
   const [wheelSpeed, setWheelSpeed] = useState(1.0);
   const [showDebugger, setShowDebugger] = useState(false);
+  const [modelLoaded, setModelLoaded] = useState(false);
 
   return (
+    
     <div className="w-full">
       {/* Фиксированная 3D сцена */}
       <div className="fixed inset-0 z-10 w-full h-full">
         <ScrollCarAnimation onScrollProgress={setScrollProgress}>
+      <div className="relative h-full w-full">
+      {/* Local loading overlay */}
+      {!modelLoaded && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-white z-10">
+          <div className="h-10 w-10 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin" />
+          <p className="mt-3 text-gray-600">MASTER AUTO LOADING...</p>
+        </div>
+      )}
+        <Suspense fallback={null}>
           <Canvas
             style={{ width: "100%", height: "100%" }}
             camera={{ position: [-8, 4, -8], fov: 20 }}
@@ -120,6 +130,7 @@ export default function InteractiveCarScene() {
                 glassColor={glassColor}
                 wheelSpeed={wheelSpeed}
                 scrollProgress={scrollProgress}
+                onLoaded={() => setModelLoaded(true)} 
               />
             </group>
 
@@ -134,6 +145,8 @@ export default function InteractiveCarScene() {
               target={[0, 0.5, 0]}
             />
           </Canvas>
+          </Suspense>
+        </div>
         </ScrollCarAnimation>
       </div>
 
