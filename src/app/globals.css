@@ -195,12 +195,20 @@ body {
 touch-action: auto !important;
 } 
 
+#scroll-container {
+  position: relative;
+  height: auto;
+  min-height: 100lvh;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
 .fixed-canvas {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100lvh; /* <- locks height to large viewport */
+  height: 100lvh; /* key change */
   z-index: 10;
   pointer-events: none;
 }
