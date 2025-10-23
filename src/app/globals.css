@@ -191,3 +191,6 @@ body {
       gap: 15px;
   }
 
+.canvas {
+touch-action: auto !important;
+} 
