@@ -45,7 +45,7 @@ function CameraResizeHandler() {
   const { camera, gl } = useThree()
 
   useEffect(() => {
-    let timeout: any
+    let timeout: ReturnType<typeof setTimeout>
     const handleResize = () => {
       clearTimeout(timeout)
       timeout = setTimeout(() => {
