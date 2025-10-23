@@ -1,7 +1,7 @@
 "use client";
 import ScrollCarAnimation from "./ScrollCarAnimation";
 
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls, Environment, Grid } from "@react-three/drei";
 import { useState, useEffect, Suspense  } from "react";
 import InteractiveCarModel from "./InteractiveCarModel";
@@ -28,6 +28,18 @@ import ExtraServices from "./sections/ExtraServices";
 import CafeSection from "./sections/CafeSection";
 import ContactFormSection from "./sections/ContactFormSection";
 import FooterHeading from "./sections/FooterHeading";
+
+function ResponsiveCamera({ fov }: { fov: number }) {
+  const { camera } = useThree();
+
+  useEffect(() => {
+    const cam = camera as THREE.PerspectiveCamera;
+    cam.fov = fov;
+    cam.updateProjectionMatrix();
+  }, [fov, camera]);
+
+  return null;
+}
 
 export default function InteractiveCarScene() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -71,6 +83,36 @@ export default function InteractiveCarScene() {
     };
   }, [modelLoaded]);
 
+  const [fov, setFov] = useState(20);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const updateFov = () => {
+      const width = window.innerWidth;
+      if (width < 250) setFov(97);
+      else if (width < 300) setFov(90);
+      else if (width < 350) setFov(85);
+      else if (width < 350) setFov(79);
+      else if (width < 400) setFov(73);
+      else if (width < 500) setFov(65);
+      else if (width < 550) setFov(55);
+      else if (width < 600) setFov(50);
+      else if (width < 700) setFov(45);
+      else if (width < 800) setFov(39);
+      else if (width < 900) setFov(35);
+      else if (width < 1000) setFov(31);
+      else if (width < 1100) setFov(29);
+      else if (width < 1200) setFov(27);
+      else if (width < 1300) setFov(25);
+      else if (width < 1400) setFov(23);
+      else setFov(20);
+    };
+
+    updateFov();
+    window.addEventListener("resize", updateFov);
+    return () => window.removeEventListener("resize", updateFov);
+  }, []);
   return (
     
     <div className="w-full">
@@ -95,7 +137,7 @@ export default function InteractiveCarScene() {
         <Suspense fallback={null}>
           <Canvas
             style={{ width: "100%", height: "100%" }}
-            camera={{ position: [-8, 4, -8], fov: 20 }}
+            camera={{ position: [-8, 4, -8], fov}}
             dpr={[1, 2]} // High DPI rendering on Retina displays
             gl={{
               antialias: true,
@@ -105,6 +147,8 @@ export default function InteractiveCarScene() {
               toneMappingExposure: 1.2,
             }}
           >
+            {/* Responsive Camera */}
+            <ResponsiveCamera fov={fov} />
             {/* Освещение */}
             <ambientLight intensity={0.6} />
             <directionalLight
