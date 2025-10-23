@@ -42,7 +42,7 @@ export default function ScrollCarAnimation({ children, onScrollProgress }: Scrol
   return (
     <div 
       ref={carRef} 
-      className="fixed-canvas"
+      className="fixed inset-0 w-full h-full z-10"
     >
       {children}
     </div>
