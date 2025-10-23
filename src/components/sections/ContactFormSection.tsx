@@ -28,7 +28,7 @@ export default function ContactFormSection() {
   const zoom = 1;
 
   return (
-    <section className="min-h-[75vh] flex items-start justify-start">
+    <section className="min-h-[75svh] flex items-start justify-start">
       <div className="flex flex-col items-center justify-center px-20 pt-10 w-full">
         {/* <!-- SVG Filter --> */}
         <svg
