@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@theme {  --breakpoint-xs: 30rem; }
+
 /* --------------- Fonts ---------------- */
 @font-face {
     font-family: Anton;
@@ -159,9 +161,7 @@ body {
 .custom-extraservices-hero-text{
   font-family: Anton;
   letter-spacing: 3px;
-  font-size: 6.9rem;
   font-weight: lighter;
-  line-height: 8rem;
 }
 .custom-interior-hero-text{
   font-family: Anton;

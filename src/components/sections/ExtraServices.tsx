@@ -1,6 +1,6 @@
 export default function ExtraServices() {
   return (
-    <section className="h-screen flex flex-col items-center justify-center">
+    <section className="lg:h-screen flex flex-col items-center justify-center">
       {/* <!-- SVG Filter --> */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -58,18 +58,18 @@ export default function ExtraServices() {
       </svg>
       {/* <!-- SVG Filter --> */}
 
-      <div className="liquid-glass rounded-2xl p-8 max-w-7xl text">
-        <h2 className="custom-extraservices-hero-text font-bold mb-13 text-white text-center relative z-10">
+      <div className="liquid-glass rounded-2xl sm:p-8 xs:p-5 p-3 xl:max-w-7xl max-w-[90vw]">
+        <h2 className="custom-extraservices-hero-text font-bold xl:mb-13 xs:mb-7 mb-4 text-white text-center relative z-10 xl:text-[6.9rem] lg:text-[7vw] xs:text-[10vw] text-[9vw] lg:leading-[8rem] sm:leading-[6rem] xs:leading-[4rem] leading-[2rem]">
           ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ
         </h2>
-        <div className="flex flex-row">
-          <div className="text-white liquid-glass rounded-2xl p-8 max-w-lg mx-5">
-            <h2 className="text-4xl font-bold mb-6 relative z-10">ДЕТЕЙЛИНГ</h2>
-            <p className="text-lg mb-4 relative z-10">
+        <div className="flex lg:flex-row flex-col lg:items-stretch items-center">
+          <div className="text-white liquid-glass rounded-2xl sm:p-8 p-5 max-w-lg mx-5">
+            <h2 className="xl:text-4xl xs:text-2xl text-xl font-bold mb-6 relative z-10">ДЕТЕЙЛИНГ</h2>
+            <p className="xl:text-lg xs:text-[1rem] text-sm  mb-4 relative z-10">
               Мы используем только проверенные технологии и материалы, чтобы
               обеспечить долговечный и безупречный результат
             </p>
-            <ul className="space-y-3 text-lg relative z-10">
+            <ul className="space-y-3 xl:text-lg xs:text-[1rem] text-sm  relative z-10">
               <li className="flex items-start">
                 <span className=" mr-3">•</span>
                 Полировка кузова
@@ -84,15 +84,15 @@ export default function ExtraServices() {
               </li>
             </ul>
           </div>
-          <div className="text-white liquid-glass rounded-2xl p-8 max-w-lg mx-5">
-            <h2 className="text-4xl font-bold mb-6 relative z-10">
+          <div className="text-white liquid-glass rounded-2xl sm:p-8 p-5 max-w-lg mx-5 lg:my-0 my-10">
+            <h2 className="xl:text-4xl xs:text-2xl text-xl font-bold mb-6 relative z-10">
               ДООСНАЩЕНИЕ
             </h2>
-            <p className="text-lg mb-4 relative z-10">
+            <p className="xl:text-lg xs:text-[1rem] text-sm  mb-4 relative z-10">
               Мы используем профессиональные полировальные машины, аппараты
               высокого давления, пылесосы, парогенераторы и многое другое
             </p>
-            <ul className="space-y-3 text-lg relative z-10">
+            <ul className="space-y-3 xl:text-lg xs:text-[1rem] text-sm  relative z-10">
               <li className="flex items-start">
                 <span className=" mr-3">•</span>
                 Автосигнализации с автозапуском
@@ -111,14 +111,14 @@ export default function ExtraServices() {
               </li>
             </ul>
           </div>
-          <div className="text-white liquid-glass rounded-2xl p-8 max-w-lg mx-5">
-            <h2 className="text-4xl font-bold mb-6 relative z-10">
+          <div className="text-white liquid-glass rounded-2xl sm:p-8 p-5 max-w-lg mx-5">
+            <h2 className="xl:text-4xl xs:text-2xl text-xl font-bold mb-6 relative z-10">
               РЕСТАЙЛИНГ
             </h2>
-            <p className="text-lg mb-4 relative z-10">
+            <p className="xl:text-lg xs:text-[1rem] text-sm  mb-4 relative z-10">
               Наиболее часто встречаются изменения затрагивающие:
             </p>
-            <ul className="space-y-3 text-lg relative z-10">
+            <ul className="space-y-3 xl:text-lg xs:text-[1rem] text-sm  relative z-10">
               <li className="flex items-start">
                 <span className=" mr-3">•</span>
                 Переднюю или заднюю оптику
