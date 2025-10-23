@@ -137,9 +137,6 @@ export default function InteractiveCarScene() {
   return (
     
     <div className="w-full">
-      <div className="fixed w-full h-full z-15">
-        
-      </div>
       {/* Фиксированная 3D сцена */}
       <div className="fixed inset-0 z-10 w-full h-full">
         <ScrollCarAnimation onScrollProgress={setScrollProgress}>
