@@ -21,7 +21,7 @@ export default function VinylWrappingSection({
   ];
 
   return (
-    <section className="h-screen flex items-center justify-between px-20">
+    <section className="h-screen flex lg:flex-row flex-col items-center justify-between px-20">
       {/* <!-- SVG Filter --> */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -80,11 +80,11 @@ export default function VinylWrappingSection({
       {/* <!-- SVG Filter --> */}
 
       {/* Панель управления цветом слева */}
-      <div className="text-white liquid-glass rounded-2xl p-6 max-w-sm">
+      <div className="text-white liquid-glass rounded-2xl p-6 lg:max-w-sm md:w-[55vw] w-[85vw]">
         <h3 className="text-2xl font-bold mb-4 relative z-10">
           Выберите цвет винила
         </h3>
-        <div className="grid grid-cols-2 gap-3 relative z-10">
+        <div className="grid lg:grid-cols-2 grid-cols-5 gap-3 relative z-10">
           {vinylColors.map((vinyl, index) => (
             <button
               key={index}
@@ -101,8 +101,8 @@ export default function VinylWrappingSection({
       </div>
 
       {/* Информационная панель справа */}
-      <div className="text-white liquid-glass rounded-2xl p-8 max-w-lg">
-        <h2 className="text-4xl font-bold mb-6 relative z-10">
+      <div className="text-white liquid-glass rounded-2xl p-8 sm:max-w-lg w-[85vw]">
+        <h2 className="sm:text-4xl text-2xl font-bold sm:mb-6 mb-4 relative z-10">
           ОКЛЕЙКА ВИНИЛОМ
         </h2>
         <ul className="space-y-3 text-lg relative z-10">
