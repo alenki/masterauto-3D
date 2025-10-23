@@ -49,7 +49,7 @@ export default function InteractiveCarModel({
   scrollProgress = 0,
   onLoaded,
 }: CarModelProps) {
-  const { scene } = useGLTF("/models/mersedes-benz_g63_amg.glb");
+  const { scene } = useGLTF("/models/car.glb");
   useEffect(() => {
     if (scene && onLoaded) {
       onLoaded();
