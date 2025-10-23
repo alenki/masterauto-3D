@@ -145,7 +145,12 @@ body {
 touch-action: auto !important;
 } 
 .section-height{
-  height: 50rem;
+  height: 50rem !important;
+}
+@media (min-height: 800px){
+  .section-height{
+    height: 70rem !important;
+  }
 }
 .custom-hero-text{
   font-family: Anton;

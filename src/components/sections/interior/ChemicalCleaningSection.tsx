@@ -59,13 +59,10 @@ export default function ChemicalCleaningSection() {
       {/* <!-- SVG Filter --> */}
 
       <div className="text-white liquid-glass rounded-2xl p-8 sm:max-w-lg w-[85vw]">
-        <h2 className="sm:text-4xl text-2xl font-bold mb-6 relative z-10">
+        <h2 className="sm:text-4xl text-2xl mb-6 font-bold relative z-10">
           ХИМЧИСТКА САЛОНА
         </h2>
-        <p className="text-lg mb-4 relative z-10">
-          Созданы для решения проблемы высокой или неудобной посадки в салон
-          вашего автомобиля
-        </p>
+        
         <ul className="space-y-3 text-lg relative z-10">
           <li className="flex items-start">
             <span className=" mr-3">•</span>

@@ -87,7 +87,7 @@ export default function PPFSection() {
             </li>
           </ul>
           <div className="border-t border-white/20 pt-4">
-            <p className="text-sm text-gray-300">
+            <p className="text-sm text-white">
               Пленка NEVER SCRATCH - премиум класса с самозаживляющимися
               свойствами
             </p>
