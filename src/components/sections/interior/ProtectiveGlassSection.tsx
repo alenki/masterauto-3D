@@ -58,8 +58,8 @@ export default function ProtectiveGlassSection() {
       </svg>
       {/* <!-- SVG Filter --> */}
 
-      <div className="text-white text-center liquid-glass rounded-2xl p-8 max-w-lg">
-        <h2 className="text-4xl font-bold mb-6 relative z-10">
+      <div className="text-white text-center liquid-glass rounded-2xl p-8 sm:max-w-lg w-[85vw]">
+        <h2 className="sm:text-4xl text-2xl font-bold mb-6 relative z-10">
           ЗАЩИТНОЕ СТЕКЛО
         </h2>
         <p className="text-lg mb-4 relative z-10">Для мониторов и панелей:</p>

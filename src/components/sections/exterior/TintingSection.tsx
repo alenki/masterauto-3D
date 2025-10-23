@@ -46,7 +46,7 @@ export default function TintingSection({
   };
 
   return (
-    <section className="h-screen flex items-center justify-between px-20">
+    <section className="h-screen flex lg:flex-row flex-col items-center lg:justify-between justify-around px-20">
       {/* <!-- SVG Filter --> */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -105,11 +105,11 @@ export default function TintingSection({
       {/* <!-- SVG Filter --> */}
 
       {/* Информационная панель слева */}
-      <div className="text-white liquid-glass rounded-2xl p-8 max-w-lg">
-        <h2 className="text-4xl font-bold mb-6 relative z-10">ТОНИРОВКА</h2>
+      <div className="text-white liquid-glass rounded-2xl p-8 sm:max-w-lg w-[85vw]">
+        <h2 className="sm:text-4xl text-2xl font-bold sm:mb-6 mb-4 relative z-10">ТОНИРОВКА</h2>
         <div className="space-y-4 relative z-10">
           <div>
-            <h3 className="text-xl font-semibold mb-2">
+            <h3 className="sm:text-2xl text-lg font-semibold mb-2">
               БОЛЬШОЙ ВЫБОР СТЁКОЛ:
             </h3>
             <ul className="space-y-2 text-lg">
@@ -137,7 +137,7 @@ export default function TintingSection({
       </div>
 
       {/* Панель управления тоном справа */}
-      <div className="text-white liquid-glass rounded-2xl p-6 max-w-sm">
+      <div className="text-white liquid-glass rounded-2xl p-6 lg:max-w-sm md:w-[55vw] w-[85vw]">
         <h3 className="text-2xl font-bold mb-6 relative z-10">
           Интенсивность тонировки
         </h3>

@@ -1,6 +1,6 @@
 export default function CafeSection() {
   return (
-    <section className="h-screen flex items-center justify-end pr-20">
+    <section className="h-screen flex lg:flex-row flex-col items-center lg:justify-end justify-center lg:pr-20">
       {/* <!-- SVG Filter --> */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -58,8 +58,8 @@ export default function CafeSection() {
       </svg>
       {/* <!-- SVG Filter --> */}
 
-      <div className="text-white liquid-glass rounded-2xl p-8 max-w-lg">
-        <h2 className="text-4xl font-bold mb-6 relative z-10">КАФЕ</h2>
+      <div className="text-white liquid-glass rounded-2xl p-8 sm:max-w-lg w-[85vw]">
+        <h2 className="sm:text-4xl text-2xl font-bold mb-6 relative z-10">КАФЕ</h2>
         <p className="text-lg mb-4 relative z-10">
           Мы заботимся не только о вашем автомобиле, но и о вашем комфорте. Пока
           идёт обслуживание, вы можете насладиться вкусным обедом или чашкой

@@ -1,6 +1,6 @@
 export default function PPFSection() {
   return (
-    <section className="h-screen flex items-center justify-start pl-20">
+    <section className="h-screen flex lg:flex-row flex-col items-center lg:justify-start justify-center lg:pl-20">
       {/* <!-- SVG Filter --> */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -58,8 +58,8 @@ export default function PPFSection() {
       </svg>
       {/* <!-- SVG Filter --> */}
 
-      <div className="text-white liquid-glass rounded-2xl p-8 max-w-lg">
-        <h2 className="text-4xl font-bold mb-6 relative z-10">
+      <div className="text-white liquid-glass rounded-2xl p-8 sm:max-w-lg w-[85vw]">
+        <h2 className="sm:text-4xl text-2xl font-bold mb-6 relative z-10">
           АНТИГРАВИЙНАЯ ПЛЁНКА
         </h2>
         <div className="space-y-4 relative z-10">
