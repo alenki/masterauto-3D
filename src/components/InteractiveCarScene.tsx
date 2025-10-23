@@ -41,32 +41,6 @@ function ResponsiveCamera({ fov }: { fov: number }) {
   return null;
 }
 
-function CameraResizeHandler() {
-  const { camera, gl } = useThree()
-
-  useEffect(() => {
-    let timeout: any
-    const handleResize = () => {
-      clearTimeout(timeout)
-      timeout = setTimeout(() => {
-        if (camera instanceof THREE.PerspectiveCamera) {
-          camera.aspect = window.innerWidth / window.innerHeight
-          camera.updateProjectionMatrix()
-        }
-        gl.setSize(window.innerWidth, window.innerHeight)
-      }, 200)
-    }
-
-    window.addEventListener('resize', handleResize)
-    return () => {
-      clearTimeout(timeout)
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [camera, gl])
-
-  return null // this component doesn’t render anything visually
-}
-
 export default function InteractiveCarScene() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [bodyColor, setBodyColor] = useState("#ff0000");
@@ -160,8 +134,6 @@ export default function InteractiveCarScene() {
     window.addEventListener("resize", updateFov);
     return () => window.removeEventListener("resize", updateFov);
   }, []);
-  
-  
   return (
     
     <div className="w-full">
@@ -194,8 +166,6 @@ export default function InteractiveCarScene() {
               toneMappingExposure: 1.2,
             }}
           >
-
-            <CameraResizeHandler />
             {/* Responsive Camera */}
             <ResponsiveCamera fov={fov} />
             {/* Освещение */}
