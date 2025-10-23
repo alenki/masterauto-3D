@@ -1,6 +1,6 @@
 export default function ExtraServices() {
   return (
-    <section className="lg:h-[100svh] flex flex-col items-center justify-center">
+    <section className="lg:section-height flex flex-col items-center justify-center">
       {/* <!-- SVG Filter --> */}
       <svg
         xmlns="http://www.w3.org/2000/svg"

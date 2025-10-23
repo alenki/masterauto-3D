@@ -1,6 +1,6 @@
 export default function ProtectiveGlassSection() {
   return (
-    <section className="h-[100svh] flex items-center justify-center">
+    <section className="section-height flex items-center justify-center">
       {/* <!-- SVG Filter --> */}
       <svg
         xmlns="http://www.w3.org/2000/svg"

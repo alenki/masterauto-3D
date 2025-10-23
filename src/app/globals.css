@@ -141,6 +141,12 @@ body {
 
 
 /* Custom CSS */
+.canvas {
+touch-action: auto !important;
+} 
+.section-height{
+  height: 50rem;
+}
 .custom-hero-text{
   font-family: Anton;
   font-size: 19.5vw;
@@ -191,6 +197,3 @@ body {
       gap: 15px;
   }
 
-.canvas {
-touch-action: auto !important;
-} 

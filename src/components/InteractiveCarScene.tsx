@@ -91,7 +91,6 @@ export default function InteractiveCarScene() {
     const updateFov = () => {
       const width = window.innerWidth;
       const height = window.innerHeight;
-      if(height < 800){
         if (width < 250) setFov(90);
         else if (width < 300) setFov(75);
         else if (width < 350) setFov(70);
@@ -107,27 +106,6 @@ export default function InteractiveCarScene() {
         else if (width < 1100) setFov(23);
         else if (width < 1200) setFov(21);
         else setFov(20);
-      }
-      else if(height < 1000) {
-        if (width < 250) setFov(97);
-        else if (width < 300) setFov(90);
-        else if (width < 350) setFov(85);
-        else if (width < 350) setFov(79);
-        else if (width < 400) setFov(73);
-        else if (width < 500) setFov(65);
-        else if (width < 550) setFov(55);
-        else if (width < 600) setFov(50);
-        else if (width < 700) setFov(45);
-        else if (width < 800) setFov(39);
-        else if (width < 900) setFov(35);
-        else if (width < 1000) setFov(31);
-        else if (width < 1100) setFov(29);
-        else if (width < 1200) setFov(27);
-        else if (width < 1300) setFov(25);
-        else if (width < 1400) setFov(23);
-        else setFov(20);
-      }
-
     };
 
     updateFov();
@@ -155,7 +133,7 @@ export default function InteractiveCarScene() {
         <Suspense fallback={null}>
           <Canvas
             className="canvas"
-            style={{ width: "100%", height: "100svh" }}
+            style={{ width: "100%", height: "50rem" }}
             camera={{ position: [-8, 4, -8], fov}}
             dpr={[1, 2]} // High DPI rendering on Retina displays
             gl={{
