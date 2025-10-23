@@ -1,3 +1,4 @@
+// src/components/ScrollCarAnimation.tsx
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
@@ -16,31 +17,33 @@ export default function ScrollCarAnimation({ children, onScrollProgress }: Scrol
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    if (!carRef.current) return;
-
-    const ctx = gsap.context(() => {
+    if (carRef.current) {
+      // Анимация только позиции HTML контейнера
       gsap.to(carRef.current, {
+        x: 0, // Оставляем контейнер в центре
         y: 0,
+        duration: 2,
+        ease: "power2.inOut",
         scrollTrigger: {
-          trigger: '#scroll-container', // 👈 your stable scroll area
-          start: 'top top',
-          end: 'bottom bottom',
+          trigger: "body",
+          start: "top top",
+          end: "bottom bottom",
           scrub: 1,
-          invalidateOnRefresh: true,
           onUpdate: (self) => {
             const progress = self.progress;
             setScrollProgress(progress);
             onScrollProgress?.(progress);
-          },
-        },
+          }
+        }
       });
-    });
-
-    return () => ctx.revert();
+    }
   }, [onScrollProgress]);
 
   return (
-    <div ref={carRef} className="fixed-canvas">
+    <div 
+      ref={carRef} 
+      className="fixed-canvas"
+    >
       {children}
     </div>
   );

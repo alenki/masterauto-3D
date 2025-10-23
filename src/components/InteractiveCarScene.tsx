@@ -139,106 +139,157 @@ export default function InteractiveCarScene() {
     <div className="w-full">
       {/* Фиксированная 3D сцена */}
       <div className="fixed inset-0 z-10 w-full h-full">
-        <div id="scroll-container">
-  <ScrollCarAnimation onScrollProgress={setScrollProgress}>
-    <div className="relative h-full w-full">
+        <ScrollCarAnimation onScrollProgress={setScrollProgress}>
+      <div className="relative h-full w-full">
       {/* Local loading overlay */}
       {!modelLoaded && (
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-white z-10">
           <div className="loader">
-            <div className="circle"></div>
-            <div className="circle"></div>
-            <div className="circle"></div>
-            <div className="circle"></div>
+              <div className="circle"></div>
+              <div className="circle"></div>
+              <div className="circle"></div>
+              <div className="circle"></div>
           </div>
         </div>
       )}
-
-      <Suspense fallback={null}>
-        <Canvas
-          className="canvas"
-          style={{ width: '100%', height: '100%' }}
-          camera={{ position: [-8, 4, -8], fov }}
-          dpr={[1, 2]}
-          gl={{
-            antialias: true,
-            alpha: true,
-            powerPreference: 'high-performance',
-            toneMapping: THREE.ACESFilmicToneMapping,
-            toneMappingExposure: 1.2,
-          }}
-        >
-          <ResponsiveCamera fov={fov} />
-          <ambientLight intensity={0.6} />
-          <directionalLight position={[10, 10, 5]} intensity={1.2} castShadow />
-          <pointLight position={[-10, -10, -10]} intensity={0.3} />
-          <Environment preset="sunset" />
-
-          <group position={[0, -1, 0]}>
-            <InteractiveCarModel
-              bodyColor={bodyColor}
-              detailsColor={detailsColor}
-              glassColor={glassColor}
-              wheelSpeed={wheelSpeed}
-              scrollProgress={scrollProgress}
-              onLoaded={() => setModelLoaded(true)}
+        <Suspense fallback={null}>
+          <Canvas
+            className="canvas"
+            style={{ width: "100%", height: "100%" }}
+            camera={{ position: [-8, 4, -8], fov}}
+            dpr={[1, 2]} // High DPI rendering on Retina displays
+            gl={{
+              antialias: true,
+              alpha: true,
+              powerPreference: "high-performance",
+              toneMapping: THREE.ACESFilmicToneMapping,
+              toneMappingExposure: 1.2,
+            }}
+          >
+            {/* Responsive Camera */}
+            <ResponsiveCamera fov={fov} />
+            {/* Освещение */}
+            <ambientLight intensity={0.6} />
+            <directionalLight
+              position={[10, 10, 5]}
+              intensity={1.2}
+              castShadow
             />
-          </group>
+            <pointLight position={[-10, -10, -10]} intensity={0.3} />
 
-          <OrbitControls
-            enableZoom={false}
-            enablePan={false}
-            enableRotate={false}
-            minDistance={3}
-            maxDistance={25}
-            maxPolarAngle={Math.PI / 2}
-            target={[0, 0.5, 0]}
-          />
-        </Canvas>
-      </Suspense>
-    </div>
-  </ScrollCarAnimation>
+            {/* Окружение */}
+            <Environment preset="sunset" />
 
-  {/* Scroll content */}
-  <div className="relative z-0">
-    <TopSection />
-    <ExteriorHeroSection />
-  </div>
+            {/* Радиальный градиентный фон */}
+            {/* <mesh position={[0, 0, -15]} rotation={[0, 0, 0]}>
+              <planeGeometry args={[100, 100]} />
+              <meshBasicMaterial
+                color="#1a1a2e"
+                side={2}
+                transparent={true}
+                opacity={0.8}
+              />
+            </mesh> */}
+            {/* <mesh
+              position={[0, 0, 10]}
+              rotation={[0, Math.PI, 0]}
+              renderOrder={-1}
+            >
+              <planeGeometry args={[100, 100]} />
+              <meshBasicMaterial
+                color="#1a1a2e"
+                side={THREE.DoubleSide}
+                transparent
+                opacity={0.8}
+              />
+            </mesh> */}
 
-  <div className="relative z-10">
-    <VinylWrappingSection
-      bodyColor={bodyColor}
-      onBodyColorChange={setBodyColor}
-    />
-    <TintingSection
-      glassColor={glassColor}
-      onGlassColorChange={setGlassColor}
-    />
-    <DentRemovalSection />
-    <PPFSection />
-    <RunningBoardsSection />
+            {/* Дополнительный радиальный градиент */}
+            {/* <mesh position={[0, 0, -14]} rotation={[0, 0, 0]}>
+              <planeGeometry args={[80, 80]} />
+              <meshBasicMaterial
+                color="#16213e"
+                side={2}
+                transparent={true}
+                opacity={0.6}
+              />
+            </mesh> */}
 
-    <InteriorHeroSection />
-    <ChemicalCleaningSection />
-    <PolishingSection />
-    <PlasticWrappingSection />
-    <ProtectiveGlassSection />
-  </div>
+            {/* Центральный световой эффект */}
+            {/* <mesh position={[0, 0, -13]} rotation={[0, 0, 0]}>
+              <planeGeometry args={[60, 60]} />
+              <meshBasicMaterial
+                color="#0f3460"
+                side={2}
+                transparent={true}
+                opacity={0.4}
+              />
+            </mesh> */}
 
-  <div className="relative z-10">
-    <ExtraServices />
-    <CafeSection />
-  </div>
+            <group position={[0, -1, 0]}>
+              <InteractiveCarModel
+                bodyColor={bodyColor}
+                detailsColor={detailsColor}
+                glassColor={glassColor}
+                wheelSpeed={wheelSpeed}
+                scrollProgress={scrollProgress}
+                onLoaded={() => setModelLoaded(true)} 
+              />
+            </group>
 
-  <div className="relative z-0">
-    <FooterHeading />
-  </div>
+            {/* Управление камерой */}
+            <OrbitControls
+              enableZoom={false}
+              enablePan={false}
+              enableRotate={false}
+              minDistance={3}
+              maxDistance={25}
+              maxPolarAngle={Math.PI / 2}
+              target={[0, 0.5, 0]}
+            />
+          </Canvas>
+          </Suspense>
+        </div>
+        </ScrollCarAnimation>
+      </div>
 
-  <div className="relative z-10">
-    <ContactFormSection />
-  </div>
-</div>
+      {/* Контент для скролла */}
+      <div className="relative z-0">
+        {/* Hero */}
+        <TopSection />
+        <ExteriorHeroSection />
+      </div>
+      <div className="relative z-10">
+        {/* Экстерьер секции */}
+        <VinylWrappingSection
+          bodyColor={bodyColor}
+          onBodyColorChange={setBodyColor}
+        />
+        <TintingSection
+          glassColor={glassColor}
+          onGlassColorChange={setGlassColor}
+        />
+        <DentRemovalSection />
+        <PPFSection />
+        <RunningBoardsSection />
 
+        {/* Интерьер секции */}
+        <InteriorHeroSection />
+        <ChemicalCleaningSection />
+        <PolishingSection />
+        <PlasticWrappingSection />
+        <ProtectiveGlassSection />
+      </div>
+      <div className="relative z-10">
+        {/* Общие секции */}
+        <ExtraServices />
+        <CafeSection />
+      </div>
+      <div className="relative z-0">
+        <FooterHeading />
+      </div>
+      <div className="relative z-10">
+        <ContactFormSection />
       </div>
     </div>
   );
