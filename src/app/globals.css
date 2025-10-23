@@ -36,7 +36,8 @@
 
 html, body {
     max-width: 100%;
-    overflow-x: hidden;
+    height: 100%;
+    overflow: hidden;
 }
 
 body {
@@ -194,3 +195,10 @@ body {
 .canvas {
 touch-action: auto !important;
 } 
+
+
+#scroll-area {
+  height: 100lvh; /* “large viewport height” — stable across mobile */
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
