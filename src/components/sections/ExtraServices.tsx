@@ -58,8 +58,8 @@ export default function ExtraServices() {
       </svg>
       {/* <!-- SVG Filter --> */}
 
-      <div className="liquid-glass rounded-2xl sm:p-8 xs:p-5 p-3 xl:max-w-7xl max-w-[90vw]">
-        <h2 className="custom-extraservices-hero-text font-bold xl:mb-13 xs:mb-7 mb-4 text-white text-center relative z-10 xl:text-[6.9rem] lg:text-[7vw] xs:text-[10vw] text-[9vw] lg:leading-[8rem] sm:leading-[6rem] xs:leading-[4rem] leading-[2rem]">
+      <div className="liquid-glass rounded-2xl sm:p-8 xs:p-5 p-3 py-7 xl:max-w-7xl max-w-[90vw]">
+        <h2 className="custom-extraservices-hero-text font-bold xl:mb-13 xs:mb-7 mb-5 text-white text-center relative z-10 xl:text-[6.9rem] lg:text-[7vw] xs:text-[10vw] text-[9vw] lg:leading-[8rem] sm:leading-[6rem] xs:leading-[4rem] leading-[2.5rem]">
           ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ
         </h2>
         <div className="flex lg:flex-row flex-col lg:items-stretch items-center">
