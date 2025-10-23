@@ -28,8 +28,8 @@ export default function ContactFormSection() {
   const zoom = 1;
 
   return (
-    <section className="h-[75vh] flex items-start justify-start">
-      <div className="flex flex-col items-center justify-center px-20 pt-13 w-full">
+    <section className="min-h-[75vh] flex items-start justify-start">
+      <div className="flex flex-col items-center justify-center px-20 pt-10 w-full">
         {/* <!-- SVG Filter --> */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -87,10 +87,10 @@ export default function ContactFormSection() {
         </svg>
         {/* <!-- SVG Filter --> */}
 
-        <div className="liquid-glass p-8 rounded-4xl w-full max-w-310 flex">
+        <div className="liquid-glass sm:p-8 xs:p-6 p-4 rounded-4xl md:w-full md:max-w-310 w-[85vw] flex lg:flex-row flex-col lg:items-stretch items-center">
           {/* Map */}
-          <div className="w-[100%] relative z-10">
-            <div className="p-6 pr-25 h-[100%]">
+          <div className="lg:w-[100%] md:w-[50vw] sm:w-[60vw] w-[70vw] relative z-10">
+            <div className="p-6 lg:pr-25 lg:h-[100%] md:h-[50vw] sm:h-[60vw] h-[70vw]">
               <LeafletMap
                 className="w-[100%]"
                 height="h-[100%]"
@@ -102,7 +102,7 @@ export default function ContactFormSection() {
           </div>
 
           {/* Form */}
-          <div className="max-w-md ml-auto p-6 relative z-10">
+          <div className="max-w-md lg:ml-auto p-6 relative z-10">
             <form onSubmit={handleSubmit} className="space-y-4">
               <input
                 type="text"
@@ -151,12 +151,12 @@ export default function ContactFormSection() {
             </form>
           </div>
         </div>
-        <div className="w-full pt-19 flex">
+        <div className="w-full pt-17 mb-7 flex sm:flex-row flex-col items-center">
           {/* CORIT LOGO */}
           <a href="https://t.me/lord_unlimited" className="footer-logo">
             COR <span>IT</span>
           </a>
-          <div className="social-media ml-auto">
+          <div className="social-media sm:ml-auto sm:mt-0 mt-5">
             {/* Telegram */}
             <a
               href="https://t.me/masterauto07"
