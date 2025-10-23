@@ -155,7 +155,7 @@ export default function InteractiveCarScene() {
         <Suspense fallback={null}>
           <Canvas
             className="canvas"
-            style={{ width: "100%", height: "800px" }}
+            style={{ width: "100%", height: "100svh" }}
             camera={{ position: [-8, 4, -8], fov}}
             dpr={[1, 2]} // High DPI rendering on Retina displays
             gl={{

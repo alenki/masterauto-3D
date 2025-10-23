@@ -1,6 +1,6 @@
 export default function PPFSection() {
   return (
-    <section className="h-screen flex lg:flex-row flex-col items-center lg:justify-start justify-center lg:pl-20">
+    <section className="h-[100svh]  flex lg:flex-row flex-col items-center lg:justify-start justify-center lg:pl-20">
       {/* <!-- SVG Filter --> */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
