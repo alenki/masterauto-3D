@@ -159,6 +159,13 @@ touch-action: auto !important;
   line-height: 20vw;
   /* text-shadow: 0 2px 8px rgba(0,0,0,0.5); */
 }
+.custom-hero-secondary-text{
+  font-family: Anton;
+  font-size: 6vw;
+  font-weight: lighter;
+  line-height: 6vw;
+  /* text-shadow: 0 2px 8px rgba(0,0,0,0.5); */
+}
 .top-arrow-icon{
    width: 70px; height: 70px; 
    transform: rotate(90deg);
