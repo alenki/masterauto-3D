@@ -113,7 +113,7 @@ export default function ExtraServices() {
           </div>
           <div className="text-white liquid-glass rounded-2xl sm:p-8 p-5 lg:w-lg max-w-lg mx-5">
             <h2 className="xl:text-4xl xs:text-2xl text-xl font-bold mb-6 relative z-10">
-              Замена Масла
+              ЗАМЕНА МАСЛА
             </h2>
             {/* <p className="xl:text-lg xs:text-[1rem] text-sm  mb-4 relative z-10">
               Наиболее часто встречаются изменения затрагивающие:
