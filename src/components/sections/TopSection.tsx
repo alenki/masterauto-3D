@@ -1,13 +1,9 @@
 export default function TopSection() {
   return (
-    <section className="section-height flex flex-col items-center z-0 relative">
-      <h1 className="text-black custom-hero-text">MASTER AUTO</h1>
-      {/* <img
-        src="/arrow.png"
-        alt="arrow icon"
-        className="mt-auto mb-21 top-arrow-icon"
-      ></img> */}
-      
+    <section className="section-height flex flex-col items-end z-0 relative">
+      <div className="w-[300px] h-[300px]">
+        <img src="/logo.png" alt="master auto logo" className="w-full h-full"/>
+      </div>
     </section>
       
       
