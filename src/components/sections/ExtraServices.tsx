@@ -63,7 +63,7 @@ export default function ExtraServices() {
           ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ
         </h2>
         <div className="flex lg:flex-row flex-col lg:items-stretch items-center">
-          <div className="text-white liquid-glass rounded-2xl sm:p-8 p-5 max-w-lg mx-5">
+          <div className="text-white liquid-glass rounded-2xl sm:p-8 p-5 lg:w-lg max-w-lg mx-5">
             <h2 className="xl:text-4xl xs:text-2xl text-xl font-bold mb-6 relative z-10">ДЕТЕЙЛИНГ</h2>
             <p className="xl:text-lg xs:text-[1rem] text-sm  mb-4 relative z-10">
               Мы используем только проверенные технологии и материалы, чтобы
@@ -84,7 +84,7 @@ export default function ExtraServices() {
               </li>
             </ul>
           </div>
-          <div className="text-white liquid-glass rounded-2xl sm:p-8 p-5 max-w-lg mx-5 lg:my-0 my-10">
+          <div className="text-white liquid-glass rounded-2xl sm:p-8 p-5 lg:w-lg max-w-lg mx-5 lg:my-0 my-10">
             <h2 className="xl:text-4xl xs:text-2xl text-xl font-bold mb-6 relative z-10">
               ДООСНАЩЕНИЕ
             </h2>
@@ -111,7 +111,7 @@ export default function ExtraServices() {
               </li>
             </ul>
           </div>
-          <div className="text-white liquid-glass rounded-2xl sm:p-8 p-5 max-w-lg mx-5">
+          <div className="text-white liquid-glass rounded-2xl sm:p-8 p-5 lg:w-lg max-w-lg mx-5">
             <h2 className="xl:text-4xl xs:text-2xl text-xl font-bold mb-6 relative z-10">
               РЕСТАЙЛИНГ
             </h2>
