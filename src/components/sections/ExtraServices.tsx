@@ -109,10 +109,6 @@ export default function ExtraServices() {
                 <span className=" mr-3">•</span>
                 Программный чип тюнинг
               </li>
-              <li className="flex items-start">
-                <span className=" mr-3">•</span>
-                Доводчики дверей
-              </li>
             </ul>
           </div>
           <div className="text-white liquid-glass rounded-2xl sm:p-8 p-5 lg:w-lg max-w-lg mx-5">
