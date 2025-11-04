@@ -20,7 +20,7 @@ import InteriorHeroSection from "./sections/interior/InteriorHeroSection";
 import ChemicalCleaningSection from "./sections/interior/ChemicalCleaningSection";
 import PolishingSection from "./sections/interior/PolishingSection";
 import PlasticWrappingSection from "./sections/interior/PlasticWrappingSection";
-import ProtectiveGlassSection from "./sections/interior/ProtectiveGlassSection";
+import OilSection from "./sections/interior/OilSection";
 
 // Общие секции
 import TopSection from "./sections/TopSection";
@@ -256,7 +256,7 @@ export default function InteractiveCarScene() {
         <ChemicalCleaningSection />
         <PolishingSection />
         <PlasticWrappingSection />
-        <ProtectiveGlassSection />
+        <OilSection />
       </div>
       <div className="relative z-10">
         {/* Общие секции */}

@@ -342,7 +342,7 @@ export default function InteractiveCarModel({
           doors: [1, 1, 1, 1],
           roof: 1,
         },
-        // Секция 11: Защитное стекло - монитор
+        // Секция 11: Замена масла
         {
           x: 0,
           y: 1,

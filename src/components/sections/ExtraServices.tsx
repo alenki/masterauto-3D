@@ -109,27 +109,35 @@ export default function ExtraServices() {
                 <span className=" mr-3">•</span>
                 Программный чип тюнинг
               </li>
+              <li className="flex items-start">
+                <span className=" mr-3">•</span>
+                Доводчики дверей
+              </li>
             </ul>
           </div>
           <div className="text-white liquid-glass rounded-2xl sm:p-8 p-5 lg:w-lg max-w-lg mx-5">
             <h2 className="xl:text-4xl xs:text-2xl text-xl font-bold mb-6 relative z-10">
-              ЗАМЕНА МАСЛА
+              РЕСТАЙЛИНГ
             </h2>
-            {/* <p className="xl:text-lg xs:text-[1rem] text-sm  mb-4 relative z-10">
+            <p className="xl:text-lg xs:text-[1rem] text-sm  mb-4 relative z-10">
               Наиболее часто встречаются изменения затрагивающие:
-            </p> */}
+            </p>
             <ul className="space-y-3 xl:text-lg xs:text-[1rem] text-sm  relative z-10">
               <li className="flex items-start">
                 <span className=" mr-3">•</span>
-                Мы продаем любые типы масел и фильтров
+                Переднюю или заднюю оптику
               </li>
               <li className="flex items-start">
                 <span className=" mr-3">•</span>
-                При замене масла клиент получает любой кофе в подарок
+                Решетку радиатора
               </li>
               <li className="flex items-start">
                 <span className=" mr-3">•</span>
-                При замене масла клиент может наблюдать за процессом через планшет
+                Бамперы
+              </li>
+              <li className="flex items-start">
+                <span className=" mr-3">•</span>
+                Дизайн легкосплавных дисков
               </li>
             </ul>
           </div>
