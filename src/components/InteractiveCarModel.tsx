@@ -343,15 +343,15 @@ export default function InteractiveCarModel({
           roof: 1,
         },
         // Секция 11: Защитное стекло - монитор
-        {
-          x: 0,
-          y: 1,
-          z: 0,
-          lookAt: [0, 0.3, 0.7],
-          rotationY: Math.PI * 0.1,
-          doors: [1, 1, 1, 1],
-          roof: 1,
-        },
+        // {
+        //   x: 0,
+        //   y: 1,
+        //   z: 0,
+        //   lookAt: [0, 0.3, 0.7],
+        //   rotationY: Math.PI * 0.1,
+        //   doors: [1, 1, 1, 1],
+        //   roof: 1,
+        // },
 
         // ОБЩИЕ (12-15)
         // Секция 12: Power - вид сбоку
@@ -397,7 +397,7 @@ export default function InteractiveCarModel({
       ];
 
       // Определяем текущую и следующую секцию
-      const totalSections = 15;
+      const totalSections = 14;
       const sectionIndex = Math.floor(scrollProgress * totalSections);
       const nextSectionIndex = Math.min(sectionIndex + 1, totalSections - 1);
       const sectionProgress = scrollProgress * totalSections - sectionIndex;
