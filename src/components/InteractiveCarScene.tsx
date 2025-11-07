@@ -90,7 +90,6 @@ export default function InteractiveCarScene() {
 
     const updateFov = () => {
       const width = window.innerWidth;
-      const height = window.innerHeight;
         if (width < 250) setFov(90);
         else if (width < 300) setFov(75);
         else if (width < 350) setFov(70);
@@ -99,13 +98,16 @@ export default function InteractiveCarScene() {
         else if (width < 500) setFov(55);
         else if (width < 550) setFov(50);
         else if (width < 600) setFov(45);
-        else if (width < 700) setFov(40);
-        else if (width < 800) setFov(35);
-        else if (width < 900) setFov(30);
-        else if (width < 1000) setFov(25);
-        else if (width < 1100) setFov(23);
-        else if (width < 1200) setFov(21);
-        else setFov(20);
+        else if (width < 700) setFov(43);
+        else if (width < 800) setFov(40);
+        else if (width < 900) setFov(38);
+        else if (width < 1000) setFov(36);
+        else if (width < 1100) setFov(33);
+        else if (width < 1200) setFov(30);
+        else if (width < 1300) setFov(28);
+        else if (width < 1400) setFov(26);
+        else if (width < 1500) setFov(24);
+        else setFov(22);
     };
 
     updateFov();
