@@ -149,6 +149,21 @@ touch-action: auto !important;
 }
 @media (min-height: 800px){
   .section-height{
+    height: 55rem !important;
+  }
+}
+@media (min-height: 850px){
+  .section-height{
+    height: 60rem !important;
+  }
+}
+@media (min-height: 900px){
+  .section-height{
+    height: 65rem !important;
+  }
+}
+@media (min-height: 1000px){
+  .section-height{
     height: 70rem !important;
   }
 }
