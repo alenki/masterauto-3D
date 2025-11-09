@@ -164,7 +164,7 @@ touch-action: auto !important;
 }
 @media (min-height: 1000px){
   .section-height{
-    height: 70rem !important;
+    height: 100vh !important;
   }
 }
 .custom-hero-text{
@@ -217,3 +217,26 @@ touch-action: auto !important;
       gap: 15px;
   }
 
+.footer-height{
+  min-height: 37.5rem !important;
+}
+@media (min-height: 800px){
+  .footer-height{
+    min-height: 41.25rem !important;
+  }
+}
+@media (min-height: 850px){
+  .footer-height{
+    min-height: 45rem !important;
+  }
+}
+@media (min-height: 900px){
+  .footer-height{
+    min-height: 48.75rem !important;
+  }
+}
+@media (min-height: 1000px){
+  .footer-height{
+    min-height: 75vh !important;
+  }
+}

@@ -28,8 +28,8 @@ export default function ContactFormSection() {
   const zoom = 1;
 
   return (
-    <section className="min-h-[37.5rem] flex items-start justify-start">
-      <div className="flex flex-col items-center justify-center px-20 pt-10 w-full">
+    <section className="footer-height flex items-start justify-start">
+      <div className="footer-height flex flex-col items-center justify-center px-20 pt-10 w-full">
         {/* <!-- SVG Filter --> */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +87,7 @@ export default function ContactFormSection() {
         </svg>
         {/* <!-- SVG Filter --> */}
 
-        <div className="liquid-glass sm:p-8 xs:p-6 p-4 rounded-4xl md:w-full md:max-w-310 w-[85vw] flex lg:flex-row flex-col lg:items-stretch items-center">
+        <div className="liquid-glass sm:p-8 xs:p-6 p-4 mt-auto rounded-4xl md:w-full md:max-w-310 w-[85vw] flex lg:flex-row flex-col lg:items-stretch items-center">
           {/* Map */}
           <div className="lg:w-[100%] md:w-[50vw] sm:w-[60vw] w-[70vw] relative z-10">
             <div className="p-6 lg:pr-25 lg:h-[100%] md:h-[50vw] sm:h-[60vw] h-[70vw]">
@@ -151,7 +151,7 @@ export default function ContactFormSection() {
             </form>
           </div>
         </div>
-        <div className="w-full pt-17 mb-7 flex sm:flex-row flex-col items-center">
+        <div className="w-full mt-auto mb-7 flex sm:flex-row flex-col items-center">
           {/* CORIT LOGO */}
           <a href="https://t.me/lord_unlimited" className="footer-logo">
             COR <span>IT</span>
