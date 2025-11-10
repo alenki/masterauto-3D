@@ -124,12 +124,7 @@ export default function InteractiveCarScene() {
       {/* Local loading overlay */}
       {!modelLoaded && (
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-white z-10">
-          <div className="loader">
-              <div className="circle"></div>
-              <div className="circle"></div>
-              <div className="circle"></div>
-              <div className="circle"></div>
-          </div>
+          <span className="loading-text text-5xl">Идет загрузка...</span>
         </div>
       )}
         <Suspense fallback={null}>
