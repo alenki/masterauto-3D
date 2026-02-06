@@ -1,165 +1,161 @@
 # Master Auto Front
 
-Интерактивное веб-приложение для демонстрации услуг автосервиса с 3D визуализацией автомобиля Mercedes G-Class.
+Interactive web application showcasing auto detailing services with a 3D Mercedes G-Class visualization.
 
-## 🚗 Особенности
+## Features
 
-- **3D Модель Mercedes G-Class** - Интерактивная 3D модель с анимацией дверей и крыши
-- **Scroll-based анимация** - Плавные переходы между секциями при прокрутке
-- **Интерактивные элементы** - Управление цветом кузова, деталей и стекол
-- **Адаптивный дизайн** - Оптимизирован для всех устройств
-- **Современный стек** - Next.js 15, React Three Fiber, TypeScript
+- **3D Mercedes G-Class Model** - Interactive 3D model with door and roof animations
+- **Scroll-based Animation** - Smooth transitions between sections on scroll
+- **Interactive Elements** - Control body, details, and glass colors
+- **Responsive Design** - Optimized for all devices
+- **Modern Stack** - Next.js 15, React Three Fiber, TypeScript
 
-## 🛠 Технологии
+## Tech Stack
 
-- **Frontend**: Next.js 15, React 18, TypeScript
-- **3D Графика**: React Three Fiber, Three.js, @react-three/drei
-- **Стилизация**: CSS Modules, Tailwind CSS
-- **Анимации**: Framer Motion, Three.js анимации
-- **3D Модели**: GLTF/GLB формат
+- **Frontend**: Next.js 15, React 19, TypeScript
+- **3D Graphics**: React Three Fiber, Three.js, @react-three/drei
+- **Styling**: Tailwind CSS
+- **Animations**: GSAP + ScrollTrigger, Three.js animations
+- **3D Models**: GLTF/GLB format
 
-## 🚀 Быстрый старт
+## Quick Start
 
-### Установка зависимостей
+### Install Dependencies
 
 ```bash
 npm install
-# или
+# or
 yarn install
-# или
+# or
 pnpm install
 ```
 
-### Запуск в режиме разработки
+### Run Development Server
 
 ```bash
 npm run dev
-# или
+# or
 yarn dev
-# или
+# or
 pnpm dev
 ```
 
-Откройте [http://localhost:3000](http://localhost:3000) в браузере для просмотра.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Сборка для продакшена
+### Production Build
 
 ```bash
 npm run build
 npm start
 ```
 
-## 📁 Структура проекта
+## Project Structure
 
 ```
 src/
 ├── app/                    # Next.js App Router
-│   ├── layout.tsx         # Основной layout
-│   └── page.tsx           # Главная страница
-├── components/            # React компоненты
-│   ├── InteractiveCarModel.tsx    # 3D модель автомобиля
-│   ├── InteractiveCarScene.tsx    # Сцена с 3D моделью
-│   ├── ColorControls.tsx          # Управление цветами
-│   ├── ScrollCarAnimation.tsx     # Анимации при скролле
-│   └── sections/                  # Секции сайта
-│       ├── exterior/              # Внешние работы
-│       ├── interior/              # Внутренние работы
-│       └── ContactFormSection.tsx # Форма обратной связи
+│   ├── layout.tsx         # Root layout
+│   └── page.tsx           # Home page
+├── components/            # React components
+│   ├── InteractiveCarModel.tsx    # 3D car model
+│   ├── InteractiveCarScene.tsx    # 3D scene
+│   ├── ColorControls.tsx          # Color controls
+│   ├── ScrollCarAnimation.tsx     # Scroll animations
+│   └── sections/                  # Site sections
+│       ├── exterior/              # Exterior services
+│       ├── interior/              # Interior services
+│       └── ContactFormSection.tsx # Contact form
 └── public/
-    └── models/            # 3D модели
-        └── mersedes-benz_g63_amg.glb
+    └── models/            # 3D models
+        └── car.glb
 ```
 
-## 🎮 Функциональность
+## Features
 
-### 3D Анимации
+### 3D Animations
 
-- **Двери**: Открытие/закрытие всех 4 дверей с правильным направлением
-- **Крыша**: Вертикальное поднятие крыши
-- **Камера**: Плавные переходы между секциями
-- **Цвета**: Динамическое изменение цветов кузова и деталей
+- **Doors**: Open/close all 4 doors with correct direction
+- **Roof**: Vertical roof lift
+- **Camera**: Smooth transitions between sections
+- **Colors**: Dynamic body and details color changes
 
-### Секции сайта
+### Site Sections
 
-- **Экстерьер**: PPF пленка, тонировка, виниловая оклейка, удаление вмятин
-- **Интерьер**: Химчистка, полировка, защитное стекло, обтяжка пластика
-- **Наши работы**: Галерея выполненных проектов
-- **Контакты**: Форма обратной связи
+- **Exterior**: PPF, window tinting, vinyl wrapping, paintless dent repair
+- **Interior**: Deep cleaning, polishing, screen protector, plastic trim wrapping
+- **Additional Services**: Detailing, vehicle upgrades, restyling
+- **Contact**: Contact form with map
 
-## ⚙️ Конфигурация
+## Configuration
 
-### Анимации
+### Animations
 
-Настройки анимаций находятся в `InteractiveCarModel.tsx`:
+Animation settings are in `InteractiveCarModel.tsx`:
 
 ```typescript
 const ANIMATION_CONFIG = {
-  doorMaxAngle: 0.8,      // Максимальный угол открытия дверей
-  roofMaxHeight: 0.3,     // Максимальная высота подъема крыши
-  animationSpeed: 0.1     // Скорость анимации
+  doorMaxAngle: 0.8,      // Max door opening angle
+  roofMaxHeight: 0.3,     // Max roof lift height
+  animationSpeed: 0.1     // Animation speed
 };
 ```
 
-### Позиции камеры
+### Camera Positions
 
-Позиции камеры для разных секций настраиваются в массиве `cameraPositions`.
+Camera positions for different sections are configured in the `cameraPositions` array.
 
-## 🎨 3D Модель
+## 3D Model
 
-Проект использует модель Mercedes G-Class в формате GLB:
-- **Файл**: `public/models/mersedes-benz_g63_amg.glb`
-- **Формат**: GLTF/GLB
-- **Оптимизация**: Сжатая для веб-использования
+The project uses a Mercedes G-Class model in GLB format:
+- **File**: `public/models/car.glb`
+- **Format**: GLTF/GLB
+- **Optimization**: Compressed for web use
 
-### Анимируемые части
+### Animated Parts
 
-- **Двери**: FL, FR, RL, RR (передние левая/правая, задние левая/правая)
-- **Крыша**: G-class_roof
-- **Стекла**: Отдельные объекты для каждой двери
-- **Зеркала**: Связаны с соответствующими дверями
+- **Doors**: FL, FR, RL, RR (front left/right, rear left/right)
+- **Roof**: G-class_roof
+- **Glass**: Separate objects for each door
+- **Mirrors**: Linked to corresponding doors
 
-## 🚀 Деплой
+## Deployment
 
-### Vercel (рекомендуется)
+### Vercel (recommended)
 
 ```bash
 npm install -g vercel
 vercel
 ```
 
-### Другие платформы
+### Other Platforms
 
-Проект совместим с любыми платформами, поддерживающими Next.js:
+The project is compatible with any platform supporting Next.js:
 - Netlify
 - AWS Amplify
 - Railway
 - Heroku
 
-## 📝 Скрипты
+## Scripts
 
-- `npm run dev` - Запуск в режиме разработки
-- `npm run build` - Сборка для продакшена
-- `npm run start` - Запуск продакшен сборки
-- `npm run lint` - Проверка кода линтером
+- `npm run dev` - Run development server
+- `npm run build` - Production build
+- `npm run start` - Start production build
+- `npm run lint` - Run linter
 
-## 🤝 Вклад в проект
+## Contributing
 
-1. Форкните репозиторий
-2. Создайте ветку для новой функции (`git checkout -b feature/amazing-feature`)
-3. Зафиксируйте изменения (`git commit -m 'Add amazing feature'`)
-4. Отправьте в ветку (`git push origin feature/amazing-feature`)
-5. Откройте Pull Request
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## 📄 Лицензия
+## License
 
-Этот проект создан для демонстрации возможностей 3D веб-разработки.
+This project was created to showcase 3D web development capabilities.
 
-## 📞 Контакты
+## Contact
 
-- **Проект**: Master Auto Front
-- **Технологии**: Next.js + React Three Fiber
-- **3D Модель**: Mercedes G-Class
-
----
-
-Создано с ❤️ для демонстрации современных веб-технологий
+- **Project**: Master Auto Front
+- **Tech**: Next.js + React Three Fiber
+- **3D Model**: Mercedes G-Class

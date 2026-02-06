@@ -23,11 +23,11 @@ interface CarModelProps {
   detailsColor: string;
   glassColor: string;
   wheelSpeed: number;
-  scrollProgress?: number; // Добавляем прогресс скролла
+  scrollProgress?: number; // Adding scroll progress
   onLoaded?: () => void;
 }
 
-// Интерфейс для анимируемых частей автомобиля
+// Interface for animated car parts
 interface AnimatedPart {
   object: Object3D;
   originalPosition: Vector3;
@@ -36,9 +36,9 @@ interface AnimatedPart {
   targetRotation: Euler;
   isAnimating: boolean;
   animationSpeed: number;
-  isOpen: boolean; // Состояние открыто/закрыто
-  animationType: "door" | "roof"; // Тип анимации
-  doorIndex?: number; // Индекс двери (0-3: передняя левая, передняя правая, задняя левая, задняя правая)
+  isOpen: boolean; // Open/closed state
+  animationType: "door" | "roof"; // Animation type
+  doorIndex?: number; // Door index (0-3: front left, front right, rear left, rear right)
 }
 
 export default function InteractiveCarModel({
@@ -77,29 +77,29 @@ export default function InteractiveCarModel({
   const wheelsRef = useRef<Object3D[]>([]);
   const prevScrollProgress = useRef(scrollProgress);
 
-  // Состояние для анимируемых частей автомобиля
+  // State for animated car parts
   const [animatedParts, setAnimatedParts] = useState<Map<string, AnimatedPart>>(
     new Map()
   );
   const animatedPartsRef = useRef<Map<string, AnimatedPart>>(new Map());
 
-  // Состояния для управления анимацией
+  // States for animation control
   const [doorsState, setDoorsState] = useState<
     [number, number, number, number]
   >([0, 0, 0, 0]); // [FL, FR, RL, RR]
   const [roofState, setRoofState] = useState(0);
 
-  // Константы для настройки анимации
+  // Animation configuration constants
   const ANIMATION_CONFIG = {
-    doorMaxAngle: Math.PI * 0.9, // Максимальный угол поворота дверей (30 градусов)
-    roofMaxHeight: 40.0, // Максимальная высота подъема крыши
-    animationSpeed: 0.1, // Скорость анимации (0.1 = плавно, 1.0 = мгновенно)
+    doorMaxAngle: Math.PI * 0.9, // Max door rotation angle (30 degrees)
+    roofMaxHeight: 40.0, // Max roof lift height
+    animationSpeed: 0.1, // Animation speed (0.1 = smooth, 1.0 = instant)
   };
 
-  // Конфигурация объектов для анимации (настроено под Mercedes G-class)
+  // Animation object configuration (configured for Mercedes G-class)
   const animationConfig = {
     doors: {
-      // Левая передняя дверь (FL)
+      // Front left door (FL)
       frontLeft: [
         "G-class_FL_door_AMG",
         "G-class_FL_door_AMG_black5_0",
@@ -112,7 +112,7 @@ export default function InteractiveCarModel({
         "G-class_FL_door_AMG_screw_017_opac_40a21753_9298_486f_b2d5_8ea3aa86f9d5_0",
         "G-class_FL_doorpanel",
       ],
-      // Правая передняя дверь (FR)
+      // Front right door (FR)
       frontRight: [
         "G-class_FR_door_AMG",
         "G-class_FR_door_AMG_black5_0",
@@ -125,7 +125,7 @@ export default function InteractiveCarModel({
         "G-class_FR_door_AMG_screw_017_opac_40a21753_9298_486f_b2d5_8ea3aa86f9d5_0",
         "G-class_FR_doorpanel",
       ],
-      // Левая задняя дверь (RL)
+      // Rear left door (RL)
       rearLeft: [
         "G-class_RL_door",
         "G-class_RL_door_bodypaint_0",
@@ -138,7 +138,7 @@ export default function InteractiveCarModel({
         "G-class_RL_door_screw_017_opac_40a21753_9298_486f_b2d5_8ea3aa86f9d5_0",
         "G-class_RL_doorpanel",
       ],
-      // Правая задняя дверь (RR)
+      // Rear right door (RR)
       rearRight: [
         "G-class_RR_door",
         "G-class_RR_door_bodypaint_0",
@@ -153,7 +153,7 @@ export default function InteractiveCarModel({
       ],
     },
     roof: {
-      // Названия объектов крыши в модели
+      // Roof object names in model
       names: [
         "G-class_body_AMG",
         "G-class_body_AMG_bodypaint_0",
@@ -177,7 +177,7 @@ export default function InteractiveCarModel({
     },
   };
 
-  // Функция для поиска объекта по списку возможных названий
+  // Function to find object by list of possible names
   const findObjectByName = (
     object: Object3D,
     possibleNames: string[]
@@ -188,7 +188,7 @@ export default function InteractiveCarModel({
     );
   };
 
-  // Функция для определения индекса двери
+  // Function to determine door index
   const getDoorIndex = (objectName: string): number => {
     const name = objectName.toLowerCase();
 
@@ -224,12 +224,12 @@ export default function InteractiveCarModel({
     return -1;
   };
 
-  // Анимация на основе scrollProgress через 5 секций
+  // Animation based on scrollProgress through 5 sections
   useFrame(({ camera }, delta) => {
     if (modelRef.current) {
-      // Определяем позиции камеры для каждой секции
+      // Define camera positions for each section
       const cameraPositions = [
-        // Секция 0: ЭкстерьерHero
+        // Section 0: Exterior Hero
         {
           x: 0,
           y: 0,
@@ -239,8 +239,8 @@ export default function InteractiveCarModel({
           doors: [0, 0, 0, 0],
           roof: 0,
         },
-        // ЭКСТЕРЬЕР (1-6)
-        // Секция 1: Экстерьер Hero - общий вид машины спереди
+        // EXTERIOR (1-6)
+        // Section 1: Exterior Hero - front overview of the car
         {
           x: 0,
           y: 0,
@@ -250,7 +250,7 @@ export default function InteractiveCarModel({
           doors: [0, 0, 0, 0],
           roof: 0,
         },
-        // Секция 2: Оклейка винилом - фокус на кузове сбоку
+        // Section 2: Vinyl wrapping - focus on body side
         {
           x: 0,
           y: 0,
@@ -260,7 +260,7 @@ export default function InteractiveCarModel({
           doors: [0, 0, 0, 0],
           roof: 0,
         },
-        // Секция 3: Тонировка - фокус на стеклах
+        // Section 3: Tinting - focus on glass
         {
           x: 0,
           y: 2,
@@ -270,7 +270,7 @@ export default function InteractiveCarModel({
           doors: [0, 0, 0, 0],
           roof: 0,
         },
-        // Секция 4: Выпрямление вмятин - детали кузова
+        // Section 4: Dent removal - body details
         {
           x: 0,
           y: 0,
@@ -280,7 +280,7 @@ export default function InteractiveCarModel({
           doors: [0, 0, 0, 0],
           roof: 0,
         },
-        // Секция 5: Антигравийная пленка - передний бампер
+        // Section 5: Paint protection film - front bumper
         {
           x: 0,
           y: 0,
@@ -290,7 +290,7 @@ export default function InteractiveCarModel({
           doors: [0, 0, 0, 0],
           roof: 0,
         },
-        // Секция 6: Подножки - вид снизу сбоку
+        // Section 6: Running boards - bottom side view
         {
           x: 0,
           y: -2,
@@ -301,8 +301,8 @@ export default function InteractiveCarModel({
           roof: 0,
         },
 
-        // ИНТЕРЬЕР (7-11)
-        // Секция 7: Интерьер Hero - переход к салону
+        // INTERIOR (7-11)
+        // Section 7: Interior Hero - transition to cabin
         {
           x: 0,
           y: 2,
@@ -312,7 +312,7 @@ export default function InteractiveCarModel({
           doors: [0, 0, 0, 0],
           roof: 0,
         },
-        // Секция 8: Химчистка - салон с открытыми дверями
+        // Section 8: Deep cleaning - cabin with open doors
         {
           x: 0,
           y: 2,
@@ -322,7 +322,7 @@ export default function InteractiveCarModel({
           doors: [0.7, 0.7, 0.7, 0.7],
           roof: 0.7,
         },
-        // Секция 9: Полировка - сиденья
+        // Section 9: Polishing - seats
         {
           x: 0,
           y: 2,
@@ -332,7 +332,7 @@ export default function InteractiveCarModel({
           doors: [0.7, 0.7, 0.7, 0.7],
           roof: 0.8,
         },
-        // Секция 10: Оклейка пластика - панель приборов
+        // Section 10: Plastic wrapping - dashboard
         {
           x: 0,
           y: 2,
@@ -342,7 +342,7 @@ export default function InteractiveCarModel({
           doors: [1, 1, 1, 1],
           roof: 1,
         },
-        // Секция 11: Защитное стекло - монитор
+        // Section 11: Screen protector - monitor
         {
           x: 0,
           y: 1,
@@ -353,8 +353,8 @@ export default function InteractiveCarModel({
           roof: 1,
         },
 
-        // ОБЩИЕ (12-15)
-        // Секция 12: Power - вид сбоку
+        // GENERAL (12-15)
+        // Section 12: Power - side view
         {
           x: 0,
           y: 1,
@@ -364,7 +364,7 @@ export default function InteractiveCarModel({
           doors: [1, 1, 1, 1],
           roof: 1,
         },
-        // Секция 13: Premium - вид сверху
+        // Section 13: Premium - top view
         {
           x: 0,
           y: 0,
@@ -374,7 +374,7 @@ export default function InteractiveCarModel({
           doors: [0, 0, 0, 0],
           roof: 0,
         },
-        // Секция 14: Contact - контактная форма
+        // Section 14: Contact - contact form
         {
           x: 0,
           y: 0,
@@ -396,13 +396,13 @@ export default function InteractiveCarModel({
         },
       ];
 
-      // Определяем текущую и следующую секцию
+      // Determine current and next section
       const totalSections = 15;
       const sectionIndex = Math.floor(scrollProgress * totalSections);
       const nextSectionIndex = Math.min(sectionIndex + 1, totalSections - 1);
       const sectionProgress = scrollProgress * totalSections - sectionIndex;
 
-      // Интерполяция между секциями
+      // Interpolation between sections
       const currentPos = cameraPositions[sectionIndex];
       const nextPos = cameraPositions[nextSectionIndex];
 
@@ -416,7 +416,7 @@ export default function InteractiveCarModel({
         currentPos.rotationY +
         (nextPos.rotationY - currentPos.rotationY) * sectionProgress;
 
-      // Плавная интерполяция lookAt
+      // Smooth lookAt interpolation
       const lookAtX =
         currentPos.lookAt[0] +
         (nextPos.lookAt[0] - currentPos.lookAt[0]) * sectionProgress;
@@ -427,21 +427,21 @@ export default function InteractiveCarModel({
         currentPos.lookAt[2] +
         (nextPos.lookAt[2] - currentPos.lookAt[2]) * sectionProgress;
 
-      // Применяем позицию камеры
+      // Apply camera position
       camera.position.set(cameraX, cameraY, cameraZ);
       camera.lookAt(lookAtX, lookAtY, lookAtZ);
 
-      // Применяем вращение машины
+      // Apply car rotation
       modelRef.current.rotation.y = rotationY;
 
-      // Машина остается в центре
+      // Car stays centered
       modelRef.current.position.set(0, 0, 0);
 
-      // Применяем анимацию частей на основе конфигурации камеры
+      // Apply part animations based on camera configuration
       const currentConfig = cameraPositions[sectionIndex];
       const nextConfig = cameraPositions[nextSectionIndex];
 
-      // Интерполируем значения анимации между секциями
+      // Interpolate animation values between sections
       const doorsFL =
         currentConfig.doors[0] +
         (nextConfig.doors[0] - currentConfig.doors[0]) * sectionProgress;
@@ -458,43 +458,43 @@ export default function InteractiveCarModel({
         currentConfig.roof +
         (nextConfig.roof - currentConfig.roof) * sectionProgress;
 
-      // Обновляем состояния анимации
+      // Update animation states
       setDoorsState([doorsFL, doorsFR, doorsRL, doorsRR]);
       setRoofState(roof);
     }
 
-    // Анимация колес на основе изменения scrollProgress
+    // Wheel animation based on scrollProgress change
     const scrollDelta = scrollProgress - prevScrollProgress.current;
     prevScrollProgress.current = scrollProgress;
 
     wheelsRef.current.forEach((wheel) => {
       if (wheel) {
-        // Колеса крутятся только если есть изменение scrollProgress
-        wheel.rotation.x += scrollDelta * wheelSpeed * 50; // Множитель 50 для видимости вращения
+        // Wheels rotate only if scrollProgress changes
+        wheel.rotation.x += scrollDelta * wheelSpeed * 50; // Multiplier 50 for visible rotation
       }
     });
 
-    // Анимация частей автомобиля
+    // Car part animation
     animatedPartsRef.current.forEach((part, name) => {
       if (part.animationType === "door" && part.doorIndex !== undefined) {
-        // Анимация дверей
+        // Door animation
         const doorValue = doorsState[part.doorIndex];
         const targetRotation = part.originalRotation.clone();
 
-        // Определяем направление поворота для каждой двери
-        let rotationDirection = 1; // По умолчанию положительное направление
+        // Determine rotation direction for each door
+        let rotationDirection = 1; // Default positive direction
 
         if (part.doorIndex === 0) {
-          // FL - левая передняя (открывается влево)
+          // FL - front left (opens left)
           rotationDirection = 1;
         } else if (part.doorIndex === 1) {
-          // FR - правая передняя (открывается вправо)
+          // FR - front right (opens right)
           rotationDirection = -1;
         } else if (part.doorIndex === 2) {
-          // RL - левая задняя (открывается влево)
+          // RL - rear left (opens left)
           rotationDirection = 1;
         } else if (part.doorIndex === 3) {
-          // RR - правая задняя (открывается вправо)
+          // RR - rear right (opens right)
           rotationDirection = -1;
         }
 
@@ -514,11 +514,11 @@ export default function InteractiveCarModel({
           (targetRotation.z - part.originalRotation.z) *
             ANIMATION_CONFIG.animationSpeed;
       } else if (part.animationType === "roof") {
-        // Анимация крыши - поднимается строго вверх
+        // Roof animation - rises straight up
         const targetPosition = part.originalPosition.clone();
         targetPosition.z += roofState * ANIMATION_CONFIG.roofMaxHeight;
 
-        // Плавно поднимаем только по Z оси
+        // Smoothly raise only on Z axis
         part.object.position.z =
           part.originalPosition.z +
           (targetPosition.z - part.originalPosition.z) *
@@ -532,7 +532,7 @@ export default function InteractiveCarModel({
     <FXAA />
   </EffectComposer>;
 
-  // Создаем материалы
+  // Create materials
 
   // const [bodyMaterial] = useState(
   //   () =>
@@ -575,7 +575,7 @@ export default function InteractiveCarModel({
       })
   );
 
-  // Обновляем цвета материалов
+  // Update material colors
   useEffect(() => {
     bodyMaterial.color.set(bodyColor);
   }, [bodyColor, bodyMaterial]);
@@ -588,7 +588,7 @@ export default function InteractiveCarModel({
     glassMaterial.color.set(glassColor);
   }, [glassColor, glassMaterial]);
 
-  // 1. Найти колеса и стеклянные элементы ОДИН РАЗ при загрузке модели
+  // 1. Find wheels and glass elements ONCE on model load
   useEffect(() => {
     if (scene && modelRef.current) {
       wheelsRef.current = [];
@@ -603,7 +603,7 @@ export default function InteractiveCarModel({
         const name = child.name;
         allObjectNames.push(name);
 
-        // Собираем кандидатов для дверей и крыши
+        // Collect candidates for doors and roof
         if (
           name.toLowerCase().includes("door") &&
           !name.toLowerCase().includes("glass")
@@ -617,7 +617,7 @@ export default function InteractiveCarModel({
           roofCandidates.push(name);
         }
 
-        // Ищем двери по конфигурации
+        // Find doors by configuration
         const doorIndex = getDoorIndex(name);
         if (doorIndex !== -1) {
           const animatedPart: AnimatedPart = {
@@ -635,7 +635,7 @@ export default function InteractiveCarModel({
           newAnimatedParts.set(name, animatedPart);
         }
 
-        // Ищем стекла дверей (они должны двигаться вместе с дверями)
+        // Find door glass (they should move with the doors)
         if (
           name.includes("doorglass_FL_tint") ||
           name.includes("doorglass_FR_tint") ||
@@ -665,12 +665,12 @@ export default function InteractiveCarModel({
           }
         }
 
-        // Ищем зеркала (они должны двигаться вместе с передними дверями)
+        // Find mirrors (they should move with front doors)
         if (name.includes("mirror_L") || name.includes("mirror_R")) {
           let mirrorDoorIndex = -1;
           if (name.includes("mirror_L"))
-            mirrorDoorIndex = 0; // Левое зеркало с левой дверью
-          else if (name.includes("mirror_R")) mirrorDoorIndex = 1; // Правое зеркало с правой дверью
+            mirrorDoorIndex = 0; // Left mirror with left door
+          else if (name.includes("mirror_R")) mirrorDoorIndex = 1; // Right mirror with right door
 
           if (mirrorDoorIndex !== -1) {
             const animatedPart: AnimatedPart = {
@@ -689,7 +689,7 @@ export default function InteractiveCarModel({
           }
         }
 
-        // Ищем крышу по конфигурации
+        // Find roof by configuration
         if (findObjectByName(child, animationConfig.roof.names)) {
           const animatedPart: AnimatedPart = {
             object: child,
@@ -705,11 +705,11 @@ export default function InteractiveCarModel({
           newAnimatedParts.set(name, animatedPart);
         }
 
-        // Ищем все объекты с "wheel" для анализа
+        // Find all objects with "wheel" for analysis
         if (name.toLowerCase().includes("wheel")) {
         }
 
-        // Ищем стеклянные элементы
+        // Find glass elements
         if (
           name.toLowerCase().includes("glass") ||
           name.toLowerCase().includes("window") ||
@@ -718,9 +718,9 @@ export default function InteractiveCarModel({
           foundGlassElements.push(name);
         }
 
-        // ФИНАЛЬНЫЙ ПОДХОД: основные колеса + AMG диски, но без деталей
+        // FINAL APPROACH: main wheels + AMG rims, without details
         if (
-          // AMG диски (только основные группы, без деталей)
+          // AMG rims (main groups only, without details)
           name === "AMG_wheels" ||
           name === "AMG_wheels001" ||
           name === "AMG_wheels002" ||
@@ -730,13 +730,13 @@ export default function InteractiveCarModel({
         }
       });
 
-      // Инициализируем анимируемые части
+      // Initialize animated parts
       setAnimatedParts(newAnimatedParts);
       animatedPartsRef.current = newAnimatedParts;
     }
-  }, [scene]); // Только при загрузке сцены
+  }, [scene]); // Only on scene load
 
-  // 2. Применить материалы при изменении цветов
+  // 2. Apply materials on color change
   useEffect(() => {
     if (scene && modelRef.current) {
       let tintedElementsCount = 0;
@@ -745,7 +745,7 @@ export default function InteractiveCarModel({
         if (child instanceof Mesh) {
           const name = child.name;
 
-          // Исключаем все объекты с "wheel" в названии
+          // Exclude all objects with "wheel" in name
           if (
             !name.toLowerCase().includes("wheel") &&
             !name.toLowerCase().includes("steering")
@@ -762,7 +762,7 @@ export default function InteractiveCarModel({
             ) {
               child.material = detailsMaterial;
             } else if (isTintingGlass(name)) {
-              // Применяем тонировку только к конкретным стеклянным элементам
+              // Apply tint only to specific glass elements
               child.material = glassMaterial;
               tintedElementsCount++;
             }
@@ -772,23 +772,23 @@ export default function InteractiveCarModel({
     }
   }, [scene, bodyMaterial, detailsMaterial, glassMaterial]);
 
-  // Функция для определения стеклянных элементов, которые должны тонироваться
+  // Function to determine glass elements that should be tinted
   const isTintingGlass = (name: string) => {
     const tintingGlassNames = [
-      // Дверные стекла
+      // Door glass
       "G-class_doorglass_FL_tint_G-class_glass_tint_0",
       "G-class_doorglass_FR_tint_G-class_glass_tint_0",
       "G-class_doorglass_RL_tint_ExtWindows_0",
       "G-class_doorglass_RR_tint_G-class_glass_tint_0",
 
-      // Боковые глухие стекла (четвертные)
+      // Side quarter glass
       "G-class_quarterglass_L_tint_G-class_glass_tint_0",
       "G-class_quarterglass_R_tint_G-class_glass_tint_0",
 
-      // Лобовое стекло
+      // Windshield
       "G-class_windshield_G-class_glass_0",
 
-      // Заднее стекло
+      // Rear glass
       "G-class_tailgateglass_tint_G-class_glass_tint_0",
     ];
 

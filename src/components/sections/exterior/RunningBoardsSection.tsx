@@ -60,24 +60,24 @@ export default function RunningBoardsSection() {
 
       <div className="text-white liquid-glass rounded-2xl p-8 sm:max-w-lg w-[85vw]">
         <h2 className="sm:text-4xl text-2xl font-bold mb-6 relative z-10">
-          ВЫДВИЖНЫЕ ЭЛЕКТРИЧЕСКИЕ ПОДНОЖКИ
+          ELECTRIC RUNNING BOARDS
         </h2>
         <p className="text-lg mb-4 relative z-10">
-          Созданы для решения проблемы высокой или неудобной посадки в салон
-          вашего автомобиля
+          Designed to solve the problem of high or uncomfortable vehicle
+          entry
         </p>
         <ul className="space-y-3 text-lg relative z-10">
           <li className="flex items-start">
             <span className=" mr-3">•</span>
-            Электрический привод
+            Electric drive
           </li>
           <li className="flex items-start">
             <span className=" mr-3">•</span>
-            Автоматическое выдвижение
+            Automatic deployment
           </li>
           <li className="flex items-start">
             <span className=" mr-3">•</span>
-            Удобная посадка в салон
+            Easy cabin access
           </li>
         </ul>
       </div>

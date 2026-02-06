@@ -60,20 +60,20 @@ export default function DentRemovalSection() {
 
       <div className="text-white liquid-glass rounded-2xl p-8 sm:max-w-lg w-[85vw]">
         <h2 className="sm:text-4xl text-2xl font-bold sm:mb-6 mb-4 relative z-10">
-          ВЫПРЯМЛЕНИЕ ВМЯТИН
+          PAINTLESS DENT REPAIR
         </h2>
         <ul className="space-y-3 text-lg relative z-10">
           <li className="flex items-start">
             <span className="mr-3">•</span>
-            Выпрямление вмятин без покраски
+            Dent removal without repainting
           </li>
           <li className="flex items-start">
             <span className="mr-3">•</span>
-            Немецкое оборудование
+            German equipment
           </li>
           <li className="flex items-start">
             <span className="mr-3">•</span>
-            Экономия времени и денег
+            Save time and money
           </li>
         </ul>
       </div>

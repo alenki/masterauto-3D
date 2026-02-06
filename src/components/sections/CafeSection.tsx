@@ -59,14 +59,14 @@ export default function CafeSection() {
       {/* <!-- SVG Filter --> */}
 
       <div className="text-white liquid-glass rounded-2xl p-8 sm:max-w-lg w-[85vw]">
-        <h2 className="sm:text-4xl text-2xl font-bold mb-6 relative z-10">КАФЕ</h2>
+        <h2 className="sm:text-4xl text-2xl font-bold mb-6 relative z-10">CAFE</h2>
         <p className="text-lg mb-4 relative z-10">
-          Мы заботимся не только о вашем автомобиле, но и о вашем комфорте. Пока
-          идёт обслуживание, вы можете насладиться вкусным обедом или чашкой
-          кофе в нашем кафе на втором этаже.
+          We care not only about your car, but also about your comfort. While
+          your vehicle is being serviced, you can enjoy a delicious meal or a cup
+          of coffee in our cafe on the second floor.
         </p>
         <div className="border-t border-white/20 pt-4">
-          <p className="text-sm text-gray-300 relative z-10">2 этаж</p>
+          <p className="text-sm text-gray-300 relative z-10">2nd floor</p>
         </div>
       </div>
     </section>

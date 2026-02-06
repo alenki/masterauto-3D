@@ -18,9 +18,9 @@ export default function ScrollCarAnimation({ children, onScrollProgress }: Scrol
 
   useEffect(() => {
     if (carRef.current) {
-      // Анимация только позиции HTML контейнера
+      // Animate only HTML container position
       gsap.to(carRef.current, {
-        x: 0, // Оставляем контейнер в центре
+        x: 0, // Keep container centered
         y: 0,
         duration: 2,
         ease: "power2.inOut",

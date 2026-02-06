@@ -7,7 +7,7 @@ import { useState, useEffect, Suspense  } from "react";
 import InteractiveCarModel from "./InteractiveCarModel";
 import ColorControls from "./ColorControls";
 import * as THREE from "three";
-// Экстерьер секции
+// Exterior sections
 import ExteriorHeroSection from "./sections/exterior/ExteriorHeroSection";
 import VinylWrappingSection from "./sections/exterior/VinylWrappingSection";
 import TintingSection from "./sections/exterior/TintingSection";
@@ -15,14 +15,14 @@ import DentRemovalSection from "./sections/exterior/DentRemovalSection";
 import PPFSection from "./sections/exterior/PPFSection";
 import RunningBoardsSection from "./sections/exterior/RunningBoardsSection";
 
-// Интерьер секции
+// Interior sections
 import InteriorHeroSection from "./sections/interior/InteriorHeroSection";
 import ChemicalCleaningSection from "./sections/interior/ChemicalCleaningSection";
 import PolishingSection from "./sections/interior/PolishingSection";
 import PlasticWrappingSection from "./sections/interior/PlasticWrappingSection";
 import ProtectiveGlassSection from "./sections/interior/ProtectiveGlassSection";
 
-// Общие секции
+// General sections
 import TopSection from "./sections/TopSection";
 import ExtraServices from "./sections/ExtraServices";
 import CafeSection from "./sections/CafeSection";
@@ -118,7 +118,7 @@ export default function InteractiveCarScene() {
   return (
     
     <div className="w-full">
-      {/* Фиксированная 3D сцена */}
+      {/* Fixed 3D scene */}
       <div className="fixed inset-0 z-10 w-full h-full">
         <ScrollCarAnimation onScrollProgress={setScrollProgress}>
       <div className="relative h-full w-full">
@@ -149,7 +149,7 @@ export default function InteractiveCarScene() {
           >
             {/* Responsive Camera */}
             <ResponsiveCamera fov={fov} />
-            {/* Освещение */}
+            {/* Lighting */}
             <ambientLight intensity={0.6} />
             <directionalLight
               position={[10, 10, 5]}
@@ -158,10 +158,10 @@ export default function InteractiveCarScene() {
             />
             <pointLight position={[-10, -10, -10]} intensity={0.3} />
 
-            {/* Окружение */}
+            {/* Environment */}
             <Environment preset="sunset" />
 
-            {/* Радиальный градиентный фон */}
+            {/* Radial gradient background */}
             {/* <mesh position={[0, 0, -15]} rotation={[0, 0, 0]}>
               <planeGeometry args={[100, 100]} />
               <meshBasicMaterial
@@ -185,7 +185,7 @@ export default function InteractiveCarScene() {
               />
             </mesh> */}
 
-            {/* Дополнительный радиальный градиент */}
+            {/* Additional radial gradient */}
             {/* <mesh position={[0, 0, -14]} rotation={[0, 0, 0]}>
               <planeGeometry args={[80, 80]} />
               <meshBasicMaterial
@@ -196,7 +196,7 @@ export default function InteractiveCarScene() {
               />
             </mesh> */}
 
-            {/* Центральный световой эффект */}
+            {/* Central light effect */}
             {/* <mesh position={[0, 0, -13]} rotation={[0, 0, 0]}>
               <planeGeometry args={[60, 60]} />
               <meshBasicMaterial
@@ -218,7 +218,7 @@ export default function InteractiveCarScene() {
               />
             </group>
 
-            {/* Управление камерой */}
+            {/* Camera controls */}
             <OrbitControls
               enableZoom={false}
               enablePan={false}
@@ -234,14 +234,14 @@ export default function InteractiveCarScene() {
         </ScrollCarAnimation>
       </div>
 
-      {/* Контент для скролла */}
+      {/* Scroll content */}
       <div className="relative z-0">
         {/* Hero */}
         <TopSection />
         <ExteriorHeroSection />
       </div>
       <div className="relative z-10">
-        {/* Экстерьер секции */}
+        {/* Exterior sections */}
         <VinylWrappingSection
           bodyColor={bodyColor}
           onBodyColorChange={setBodyColor}
@@ -254,7 +254,7 @@ export default function InteractiveCarScene() {
         <PPFSection />
         <RunningBoardsSection />
 
-        {/* Интерьер секции */}
+        {/* Interior sections */}
         <InteriorHeroSection />
         <ChemicalCleaningSection />
         <PolishingSection />
@@ -262,7 +262,7 @@ export default function InteractiveCarScene() {
         <ProtectiveGlassSection />
       </div>
       <div className="relative z-10">
-        {/* Общие секции */}
+        {/* General sections */}
         <ExtraServices />
         <CafeSection />
       </div>

@@ -25,14 +25,14 @@ export default function ColorControls({
   return (
     <div className="ml-25 mt-25 z-10 bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-xl max-w-sm">
       <h2 className="text-2xl font-bold text-gray-800 mb-4">
-        🚗 Настройки Mercedes G63
+        Mercedes G63 Settings
       </h2>
 
       <div className="space-y-4">
-        {/* Цвет кузова */}
+        {/* Body Color */}
         <div className="flex items-center space-x-3">
           <label className="text-sm font-medium text-gray-700 w-16">
-            Кузов:
+            Body:
           </label>
           <input
             type="color"
@@ -43,10 +43,10 @@ export default function ColorControls({
           <span className="text-xs text-gray-500">{bodyColor}</span>
         </div>
 
-        {/* Цвет деталей */}
+        {/* Details Color */}
         <div className="flex items-center space-x-3">
           <label className="text-sm font-medium text-gray-700 w-16">
-            Детали:
+            Details:
           </label>
           <input
             type="color"
@@ -57,10 +57,10 @@ export default function ColorControls({
           <span className="text-xs text-gray-500">{detailsColor}</span>
         </div>
 
-        {/* Цвет стекла */}
+        {/* Glass Color */}
         <div className="flex items-center space-x-3">
           <label className="text-sm font-medium text-gray-700 w-16">
-            Стекло:
+            Glass:
           </label>
           <input
             type="color"
@@ -71,10 +71,10 @@ export default function ColorControls({
           <span className="text-xs text-gray-500">{glassColor}</span>
         </div>
 
-        {/* Скорость колес */}
+        {/* Wheel Speed */}
         <div className="space-y-2">
           <label className="text-sm font-medium text-gray-700">
-            Скорость колес: {wheelSpeed.toFixed(1)}x
+            Wheel speed: {wheelSpeed.toFixed(1)}x
           </label>
           <input
             type="range"
@@ -87,10 +87,10 @@ export default function ColorControls({
           />
         </div>
 
-        {/* Предустановленные цвета */}
+        {/* Preset Colors */}
         <div className="space-y-2">
           <label className="text-sm font-medium text-gray-700">
-            Быстрый выбор:
+            Quick select:
           </label>
           <div className="grid grid-cols-3 gap-2">
             <button
@@ -101,7 +101,7 @@ export default function ColorControls({
               }}
               className="px-3 py-1 text-xs bg-red-500 text-white rounded hover:bg-red-600"
             >
-              Красный
+              Red
             </button>
             <button
               onClick={() => {
@@ -111,7 +111,7 @@ export default function ColorControls({
               }}
               className="px-3 py-1 text-xs bg-blue-500 text-white rounded hover:bg-blue-600"
             >
-              Синий
+              Blue
             </button>
             <button
               onClick={() => {
@@ -121,7 +121,7 @@ export default function ColorControls({
               }}
               className="px-3 py-1 text-xs bg-black text-white rounded hover:bg-gray-800"
             >
-              Черный
+              Black
             </button>
           </div>
         </div>

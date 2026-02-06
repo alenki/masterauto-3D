@@ -60,17 +60,17 @@ export default function ProtectiveGlassSection() {
 
       <div className="text-white text-center flex flex-col items-center liquid-glass rounded-2xl p-8 sm:max-w-lg w-[85vw]">
         <h2 className="sm:text-4xl text-2xl font-bold mb-6 relative z-10">
-          ЗАЩИТНОЕ СТЕКЛО
+          SCREEN PROTECTOR
         </h2>
-        <p className="text-lg mb-4 relative z-10">Для мониторов и панелей</p>
+        <p className="text-lg mb-4 relative z-10">For monitors and panels</p>
         <ul className="space-y-3 text-lg relative z-10 flex flex-col max-w-[300px] items-start">
           <li className="items-start">
             <span className=" mr-3">•</span>
-            Антибликовое покрытие
+            Anti-glare coating
           </li>
           <li className="items-start">
             <span className=" mr-3">•</span>
-            Защита от царапин
+            Scratch protection
           </li>
         </ul>
       </div>

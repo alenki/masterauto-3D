@@ -60,17 +60,17 @@ export default function PlasticWrappingSection() {
 
       <div className="text-white liquid-glass rounded-2xl p-8 sm:max-w-lg w-[85vw]">
         <h2 className="sm:text-4xl text-2xl font-bold mb-6 relative z-10">
-          ОКЛЕЙКА ПЛАСТИКА
+          PLASTIC TRIM WRAPPING
         </h2>
-        <p className="text-lg mb-4 relative z-10">Защита и стиль салона</p>
+        <p className="text-lg mb-4 relative z-10">Protection and style for your interior</p>
         <ul className="space-y-3 text-lg relative z-10">
           <li className="flex items-start">
             <span className=" mr-3">•</span>
-            Виниловые покрытия
+            Vinyl coatings
           </li>
           <li className="flex items-start">
             <span className=" mr-3">•</span>
-            Карбоновые текстуры
+            Carbon fiber textures
           </li>
         </ul>
       </div>

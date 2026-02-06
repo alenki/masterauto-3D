@@ -60,18 +60,18 @@ export default function PolishingSection() {
 
       <div className="text-white liquid-glass rounded-2xl p-8 sm:max-w-lg w-[85vw]">
         <h2 className="sm:text-4xl text-2xl font-bold mb-6 relative z-10">
-          ПОЛИРОВКА САЛОНА
+          INTERIOR POLISHING
         </h2>
         <div className="space-y-4 relative z-10">
-          <p className="text-lg mb-4">Восстановление блеска поверхностей</p>
+          <p className="text-lg mb-4">Restoring surface gloss and shine</p>
           <ul className="space-y-2 text-lg">
             <li className="flex items-start">
               <span className=" mr-3">•</span>
-              Полировка всех лакированных вставок салона автомобиля
+              Polishing all lacquered interior trim pieces
             </li>
             <li className="flex items-start">
               <span className=" mr-3">•</span>
-              Нанесение керамики на все лакированные вставки салона автомобиля
+              Ceramic coating on all lacquered interior trim pieces
             </li>
           </ul>
         </div>

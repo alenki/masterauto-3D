@@ -13,7 +13,7 @@ export default function ContactFormSection() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
-    alert("Спасибо за обращение! Мы свяжемся с вами.");
+    alert("Thank you for reaching out! We will contact you shortly.");
   };
 
   const points: Point[] = [
@@ -106,7 +106,7 @@ export default function ContactFormSection() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <input
                 type="text"
-                placeholder="Имя"
+                placeholder="Name"
                 value={formData.name}
                 onChange={(e) =>
                   setFormData({ ...formData, name: e.target.value })
@@ -126,7 +126,7 @@ export default function ContactFormSection() {
               />
               <input
                 type="tel"
-                placeholder="Телефон"
+                placeholder="Phone"
                 value={formData.phone}
                 onChange={(e) =>
                   setFormData({ ...formData, phone: e.target.value })
@@ -134,7 +134,7 @@ export default function ContactFormSection() {
                 className="w-full px-4 py-3 rounded liquid-glass placeholder-white/60 border border-white/30"
               />
               <textarea
-                placeholder="Сообщение"
+                placeholder="Message"
                 value={formData.message}
                 onChange={(e) =>
                   setFormData({ ...formData, message: e.target.value })
@@ -146,7 +146,7 @@ export default function ContactFormSection() {
                 type="submit"
                 className="w-full bg-red-700 hover:bg-red-800 font-bold py-3 rounded transition cursor-pointer"
               >
-                Отправить
+                Submit
               </button>
             </form>
           </div>

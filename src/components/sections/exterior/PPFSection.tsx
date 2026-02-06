@@ -60,36 +60,36 @@ export default function PPFSection() {
 
       <div className="text-white liquid-glass rounded-2xl p-8 sm:max-w-lg w-[85vw]">
         <h2 className="sm:text-4xl text-2xl font-bold mb-6 relative z-10">
-          АНТИГРАВИЙНАЯ ПЛЁНКА
+          PAINT PROTECTION FILM
         </h2>
         <div className="space-y-4 relative z-10">
-          <p className="text-lg mb-4">Качественная пленка защищает авто от:</p>
+          <p className="text-lg mb-4">Quality film protects your car from:</p>
           <ul className="space-y-2 text-lg">
             <li className="flex items-start">
               <span className=" mr-3">•</span>
-              Сколов и царапин
+              Chips and scratches
             </li>
             <li className="flex items-start">
               <span className=" mr-3">•</span>
-              Пескоструя
+              Sandblasting
             </li>
             <li className="flex items-start">
               <span className=" mr-3">•</span>
-              Хим реагентов
+              Chemical reagents
             </li>
             <li className="flex items-start">
               <span className=" mr-3">•</span>
-              Вандалов
+              Vandalism
             </li>
             <li className="flex items-start">
               <span className=" mr-3">•</span>
-              Небольших ДТП
+              Minor collisions
             </li>
           </ul>
           <div className="border-t border-white/20 pt-4">
             <p className="text-sm text-white">
-              Пленка NEVER SCRATCH - премиум класса с самозаживляющимися
-              свойствами
+              NEVER SCRATCH film — premium grade with self-healing
+              properties
             </p>
           </div>
         </div>

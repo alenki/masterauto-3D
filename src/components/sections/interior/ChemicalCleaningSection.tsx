@@ -60,21 +60,21 @@ export default function ChemicalCleaningSection() {
 
       <div className="text-white liquid-glass rounded-2xl p-8 sm:max-w-lg w-[85vw]">
         <h2 className="sm:text-4xl text-2xl mb-6 font-bold relative z-10">
-          ХИМЧИСТКА САЛОНА
+          INTERIOR DEEP CLEANING
         </h2>
-        
+
         <ul className="space-y-3 text-lg relative z-10">
           <li className="flex items-start">
             <span className=" mr-3">•</span>
-            Глубокая очистка всех поверхностей
+            Deep cleaning of all surfaces
           </li>
           <li className="flex items-start">
             <span className=" mr-3">•</span>
-            Удаление пятен и запахов
+            Stain and odor removal
           </li>
           <li className="flex items-start">
             <span className=" mr-3">•</span>
-            Обработка сидений и ковриков
+            Seat and mat treatment
           </li>
         </ul>
       </div>

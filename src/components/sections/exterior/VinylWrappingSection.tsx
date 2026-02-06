@@ -8,16 +8,16 @@ export default function VinylWrappingSection({
   onBodyColorChange,
 }: VinylWrappingSectionProps) {
   const vinylColors = [
-    { name: "Черный", color: "#000", bg: "bg-black" },
-    { name: "Белый", color: "#fff", bg: "bg-white" },
-    { name: "Красный", color: "#ff0000", bg: "bg-red-700" },
-    { name: "Темно-красный", color: "#7f1d1d", bg: "bg-red-900" },
-    { name: "Синий", color: "#1e3a8a", bg: "bg-blue-800" },
-    { name: "Темно-синий", color: "#374151", bg: "bg-blue-950" },
-    { name: "Темно-зеленый", color: "#14532d", bg: "bg-green-900" },
-    { name: "Темно-фиолетовый", color: "#581c87", bg: "bg-purple-900" },
-    { name: "Темно-оранжевый", color: "#9a3412", bg: "bg-orange-900" },
-    { name: "Темно-коричневый", color: "#451a03", bg: "bg-amber-900" },
+    { name: "Black", color: "#000", bg: "bg-black" },
+    { name: "White", color: "#fff", bg: "bg-white" },
+    { name: "Red", color: "#ff0000", bg: "bg-red-700" },
+    { name: "Dark Red", color: "#7f1d1d", bg: "bg-red-900" },
+    { name: "Blue", color: "#1e3a8a", bg: "bg-blue-800" },
+    { name: "Dark Blue", color: "#374151", bg: "bg-blue-950" },
+    { name: "Dark Green", color: "#14532d", bg: "bg-green-900" },
+    { name: "Dark Purple", color: "#581c87", bg: "bg-purple-900" },
+    { name: "Dark Orange", color: "#9a3412", bg: "bg-orange-900" },
+    { name: "Dark Brown", color: "#451a03", bg: "bg-amber-900" },
   ];
 
   return (
@@ -79,10 +79,10 @@ export default function VinylWrappingSection({
       </svg>
       {/* <!-- SVG Filter --> */}
 
-      {/* Панель управления цветом слева */}
+      {/* Color control panel left */}
       <div className="text-white liquid-glass rounded-2xl p-6 lg:max-w-sm md:w-[55vw] w-[85vw]">
         <h3 className="text-2xl font-bold mb-4 relative z-10">
-          Выберите цвет винила
+          Select vinyl color
         </h3>
         <div className="grid lg:grid-cols-2 grid-cols-5 gap-3 relative z-10">
           {vinylColors.map((vinyl, index) => (
@@ -100,23 +100,23 @@ export default function VinylWrappingSection({
         </div>
       </div>
 
-      {/* Информационная панель справа */}
+      {/* Info panel right */}
       <div className="text-white liquid-glass rounded-2xl p-8 sm:max-w-lg w-[85vw]">
         <h2 className="sm:text-4xl text-2xl font-bold sm:mb-6 mb-4 relative z-10">
-          ОКЛЕЙКА ВИНИЛОМ
+          VINYL WRAPPING
         </h2>
         <ul className="space-y-3 text-lg relative z-10">
           <li className="flex items-start">
             <span className=" mr-3">•</span>
-            Большой выбор цветовой гаммы
+            Wide range of colors
           </li>
           <li className="flex items-start">
             <span className=" mr-3">•</span>
-            Защита кузова от царапин
+            Body protection from scratches
           </li>
           <li className="flex items-start">
             <span className=" mr-3">•</span>
-            Создание личного дизайна
+            Custom design creation
           </li>
         </ul>
       </div>

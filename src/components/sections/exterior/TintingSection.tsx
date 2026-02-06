@@ -7,19 +7,19 @@ export default function TintingSection({
   glassColor,
   onGlassColorChange,
 }: TintingSectionProps) {
-  // Функция для преобразования цвета в значение ползунка (0-100)
+  // Convert color to slider value (0-100)
   const getSliderValue = (color: string) => {
-    // Если цвет уже в формате тонировки, извлекаем значение
+    // If color is already in tint format, extract the value
     if (color.startsWith("#")) {
-      // Преобразуем hex в RGB
+      // Convert hex to RGB
       const hex = color.replace("#", "");
       if (hex.length === 6) {
         const r = parseInt(hex.substr(0, 2), 16);
         const g = parseInt(hex.substr(2, 2), 16);
         const b = parseInt(hex.substr(4, 2), 16);
 
-        // Вычисляем яркость (0-255) и преобразуем в процент (0-100)
-        // Для серых тонов все компоненты одинаковы
+        // Calculate brightness (0-255) and convert to percent (0-100)
+        // For gray tones all components are equal
         const brightness = (r + g + b) / 3;
         return Math.round(100 - (brightness / 255) * 100);
       }
@@ -27,15 +27,15 @@ export default function TintingSection({
     return 0;
   };
 
-  // Функция для плавного преобразования значения ползунка в цвет (0-100)
+  // Smooth conversion of slider value to color (0-100)
   const getColorFromSlider = (value: number) => {
-    // Ограничиваем значение от 0 до 100
+    // Clamp value from 0 to 100
     const clampedValue = Math.max(0, Math.min(100, value));
 
-    // Преобразуем процент в яркость (255 = белый, 0 = черный)
+    // Convert percent to brightness (255 = white, 0 = black)
     const brightness = Math.round(255 - (clampedValue / 100) * 255);
 
-    // Создаем серый цвет с вычисленной яркостью
+    // Create gray color with calculated brightness
     const hex = brightness.toString(16).padStart(2, "0");
     return `#${hex}${hex}${hex}`;
   };
@@ -104,48 +104,48 @@ export default function TintingSection({
       </svg>
       {/* <!-- SVG Filter --> */}
 
-      {/* Информационная панель слева */}
+      {/* Info panel left */}
       <div className="text-white liquid-glass rounded-2xl p-8 sm:max-w-lg w-[85vw]">
-        <h2 className="sm:text-4xl text-2xl font-bold sm:mb-6 mb-4 relative z-10">ТОНИРОВКА</h2>
+        <h2 className="sm:text-4xl text-2xl font-bold sm:mb-6 mb-4 relative z-10">WINDOW TINTING</h2>
         <div className="space-y-4 relative z-10">
           <div>
             <h3 className="sm:text-2xl text-lg font-semibold mb-2">
-              БОЛЬШОЙ ВЫБОР СТЁКОЛ:
+              WIDE SELECTION OF FILMS:
             </h3>
             <ul className="space-y-2 text-lg">
               <li className="flex items-start">
                 <span className=" mr-3">•</span>
-                Тонировка по ГОСТУ
+                Standard-compliant tinting
               </li>
               <li className="flex items-start">
                 <span className=" mr-3">•</span>
-                Атермальная пленка
+                Athermal film
               </li>
               <li className="flex items-start">
                 <span className=" mr-3">•</span>
-                Архитектурная пленка
+                Architectural film
               </li>
             </ul>
           </div>
           <div className="border-t border-white/20 pt-4">
             <p className="text-sm text-gray-300">
-              Мастера с многолетним опытом • Гарантия качества на все виды
-              оклейки
+              Experienced professionals &bull; Quality guarantee on all types
+              of application
             </p>
           </div>
         </div>
       </div>
 
-      {/* Панель управления тоном справа */}
+      {/* Tint control panel right */}
       <div className="text-white liquid-glass rounded-2xl p-6 lg:max-w-sm md:w-[55vw] w-[85vw]">
         <h3 className="text-2xl font-bold mb-6 relative z-10">
-          Интенсивность тонировки
+          Tint intensity
         </h3>
 
         <div className="space-y-4 relative z-10">
           <div>
             <label className="block text-sm font-medium mb-2">
-              Уровень тонировки: {getSliderValue(glassColor)}%
+              Tint level: {getSliderValue(glassColor)}%
             </label>
             <input
               type="range"
@@ -162,8 +162,8 @@ export default function TintingSection({
           </div>
 
           <div className="flex justify-between text-xs text-gray-400">
-            <span>Прозрачный</span>
-            <span>Максимальная</span>
+            <span>Transparent</span>
+            <span>Maximum</span>
           </div>
         </div>
       </div>

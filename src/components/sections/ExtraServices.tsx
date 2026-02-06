@@ -60,80 +60,80 @@ export default function ExtraServices() {
 
       <div className="liquid-glass rounded-2xl sm:p-8 xs:p-5 p-3 py-7 xl:max-w-7xl max-w-[90vw]">
         <h2 className="custom-extraservices-hero-text font-bold xl:mb-13 xs:mb-7 mb-5 text-white text-center relative z-10 xl:text-[6.9rem] lg:text-[7vw] xs:text-[10vw] text-[9vw] lg:leading-[8rem] sm:leading-[6rem] xs:leading-[4rem] leading-[2.5rem]">
-          ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ
+          ADDITIONAL SERVICES
         </h2>
         <div className="flex lg:flex-row flex-col lg:items-stretch items-center">
           <div className="text-white liquid-glass rounded-2xl sm:p-8 p-5 lg:w-lg max-w-lg mx-5">
-            <h2 className="xl:text-4xl xs:text-2xl text-xl font-bold mb-6 relative z-10">ДЕТЕЙЛИНГ</h2>
+            <h2 className="xl:text-4xl xs:text-2xl text-xl font-bold mb-6 relative z-10">DETAILING</h2>
             <p className="xl:text-lg xs:text-[1rem] text-sm  mb-4 relative z-10">
-              Мы используем только проверенные технологии и материалы, чтобы
-              обеспечить долговечный и безупречный результат
+              We use only proven technologies and materials to ensure
+              long-lasting and flawless results
             </p>
             <ul className="space-y-3 xl:text-lg xs:text-[1rem] text-sm  relative z-10">
               <li className="flex items-start">
                 <span className=" mr-3">•</span>
-                Полировка кузова
+                Body polishing
               </li>
               <li className="flex items-start">
                 <span className=" mr-3">•</span>
-                Керамическая защита
+                Ceramic protection
               </li>
               <li className="flex items-start">
                 <span className=" mr-3">•</span>
-                Автомойка
+                Car wash
               </li>
             </ul>
           </div>
           <div className="text-white liquid-glass rounded-2xl sm:p-8 p-5 lg:w-lg max-w-lg mx-5 lg:my-0 my-10">
             <h2 className="xl:text-4xl xs:text-2xl text-xl font-bold mb-6 relative z-10">
-              ДООСНАЩЕНИЕ
+              VEHICLE UPGRADES
             </h2>
             <p className="xl:text-lg xs:text-[1rem] text-sm  mb-4 relative z-10">
-              Мы используем профессиональные полировальные машины, аппараты
-              высокого давления, пылесосы, парогенераторы и многое другое
+              We use professional polishing machines, high-pressure washers,
+              vacuums, steam generators, and more
             </p>
             <ul className="space-y-3 xl:text-lg xs:text-[1rem] text-sm  relative z-10">
               <li className="flex items-start">
                 <span className=" mr-3">•</span>
-                Автосигнализации с автозапуском
+                Car alarms with remote start
               </li>
               <li className="flex items-start">
                 <span className=" mr-3">•</span>
-                Электромеханический замок
+                Electromechanical lock
               </li>
               <li className="flex items-start">
                 <span className=" mr-3">•</span>
-                Мониторы на системе &ldquo;Андройд&rdquo;
+                Android system monitors
               </li>
               <li className="flex items-start">
                 <span className=" mr-3">•</span>
-                Программный чип тюнинг
+                ECU chip tuning
               </li>
             </ul>
           </div>
           <div className="text-white liquid-glass rounded-2xl sm:p-8 p-5 lg:w-lg max-w-lg mx-5">
             <h2 className="xl:text-4xl xs:text-2xl text-xl font-bold mb-6 relative z-10">
-              РЕСТАЙЛИНГ
+              RESTYLING
             </h2>
             <p className="xl:text-lg xs:text-[1rem] text-sm  mb-4 relative z-10">
-              Наиболее часто встречаются изменения затрагивающие:
+              Most common modifications include:
             </p>
             <ul className="space-y-3 xl:text-lg xs:text-[1rem] text-sm  relative z-10">
               <li className="flex items-start">
                 <span className=" mr-3">•</span>
-                Переднюю или заднюю оптику
+                Front or rear lights
               </li>
               <li className="flex items-start">
                 <span className=" mr-3">•</span>
-                Решетку радиатора
+                Radiator grille
               </li>
               <li className="flex items-start">
                 <span className=" mr-3">•</span>
-                Бамперы
+                Bumpers
               </li>
               <li className="flex items-start">
                 <span className=" mr-3">•</span>
-                Дизайн легкосплавных дисков
+                Alloy wheel design
               </li>
             </ul>
           </div>
