@@ -199,9 +199,11 @@ touch-action: auto !important;
 /* Footer */
 .custom-contact-hero-text{
   font-family: Anton;
-  font-size: 13.25vw;
+  font-size: min(22vw, 365px);
   font-weight: lighter;
-  line-height: 10.0vw;
+  line-height: min(17vw, 285px);
+  width: 100%;
+  white-space: nowrap;
 }
   .footer-logo {
       font-family: 'Press Start 2P';
