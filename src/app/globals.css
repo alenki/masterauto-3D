@@ -180,9 +180,9 @@ touch-action: auto !important;
 }
 .custom-exterior-hero-text{
   font-family: Anton;
-  font-size: 24.5vw;
+  font-size: 29vw;
   font-weight: lighter;
-  line-height: 20.0vw;
+  line-height: 24vw;
 }
 .custom-extraservices-hero-text{
   font-family: Anton;
@@ -191,9 +191,9 @@ touch-action: auto !important;
 }
 .custom-interior-hero-text{
   font-family: Anton;
-  font-size: 27.5vw;
+  font-size: 29vw;
   font-weight: lighter;
-  line-height: 20.0vw;
+  line-height: 24vw;
 }
 
 /* Footer */
