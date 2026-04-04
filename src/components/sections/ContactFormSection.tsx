@@ -153,7 +153,7 @@ export default function ContactFormSection() {
         </div>
         <div className="w-full lg:mt-auto mt-15 mb-7 flex sm:flex-row flex-col items-center">
           {/* CORIT LOGO */}
-          <a href="https://t.me/lord_unlimited" className="footer-logo">
+          <a href="https://karafco.ru" className="footer-logo" target="_blank">
             MADE BY <span>KARAF</span>
           </a>
           <div className="social-media sm:ml-auto sm:mt-0 mt-5">
