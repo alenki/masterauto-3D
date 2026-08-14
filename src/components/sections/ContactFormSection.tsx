@@ -1,6 +1,40 @@
 "use client";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import LeafletMap, { type Point } from "./LeafletMap";
+
+/* Lumako marker loop — deterministic wobble ellipse smoothed via Catmull-Rom,
+   same numbers and pen ease as the Cursor.tsx loop on lumako.ru */
+const LOOP_EASE = "cubic-bezier(0.5, 0, 0.3, 1)";
+const LOOP_PAD_X = 12;
+const LOOP_PAD_Y = 9;
+
+function splinePath(pts: [number, number][]) {
+  let d = `M ${pts[0][0].toFixed(1)} ${pts[0][1].toFixed(1)}`;
+  for (let i = 0; i < pts.length - 1; i++) {
+    const p0 = pts[i - 1] ?? pts[i];
+    const p1 = pts[i];
+    const p2 = pts[i + 1];
+    const p3 = pts[i + 2] ?? p2;
+    d +=
+      ` C ${(p1[0] + (p2[0] - p0[0]) / 6).toFixed(1)} ${(p1[1] + (p2[1] - p0[1]) / 6).toFixed(1)},` +
+      ` ${(p2[0] - (p3[0] - p1[0]) / 6).toFixed(1)} ${(p2[1] - (p3[1] - p1[1]) / 6).toFixed(1)},` +
+      ` ${p2[0].toFixed(1)} ${p2[1].toFixed(1)}`;
+  }
+  return d;
+}
+
+function roughLoop(cx: number, cy: number, rx: number, ry: number) {
+  const START = -Math.PI * 0.85;
+  const TURNS = Math.PI * 2 + 0.5;
+  const N = 16;
+  const pts: [number, number][] = [];
+  for (let i = 0; i <= N; i++) {
+    const a = START + TURNS * (i / N);
+    const wob = 1 + 0.03 * Math.sin(3 * a + 0.7) + 0.022 * Math.cos(2 * a + 2.1);
+    pts.push([cx + Math.cos(a) * rx * wob, cy + Math.sin(a) * ry * wob]);
+  }
+  return splinePath(pts);
+}
 
 export default function ContactFormSection() {
   const [formData, setFormData] = useState({
@@ -14,6 +48,62 @@ export default function ContactFormSection() {
     e.preventDefault();
     console.log("Form submitted:", formData);
     alert("Спасибо за обращение! Мы свяжемся с вами.");
+  };
+
+  const creditRef = useRef<HTMLAnchorElement>(null);
+  const loopLayerRef = useRef<SVGSVGElement>(null);
+  const loopPathRef = useRef<SVGPathElement | null>(null);
+
+  const drawLoop = () => {
+    if (
+      !matchMedia("(pointer: fine)").matches ||
+      matchMedia("(prefers-reduced-motion: reduce)").matches
+    )
+      return;
+    const el = creditRef.current;
+    const layer = loopLayerRef.current;
+    if (!el || !layer) return;
+    loopPathRef.current?.remove();
+    const r = el.getBoundingClientRect();
+    const d = roughLoop(
+      r.width / 2,
+      r.height / 2,
+      Math.max(r.width / 2 + LOOP_PAD_X, 16),
+      Math.max(r.height / 2 + LOOP_PAD_Y, 13)
+    );
+    const p = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    p.setAttribute("d", d);
+    layer.appendChild(p);
+    const L = p.getTotalLength();
+    p.style.strokeDasharray = String(L);
+    p.animate([{ strokeDashoffset: L }, { strokeDashoffset: 0 }], {
+      duration: 300,
+      easing: LOOP_EASE,
+      fill: "forwards",
+    });
+    p.animate([{ opacity: 0 }, { opacity: 1 }], {
+      duration: 120,
+      fill: "forwards",
+    });
+    loopPathRef.current = p;
+  };
+
+  const undrawLoop = () => {
+    const p = loopPathRef.current;
+    if (!p) return;
+    loopPathRef.current = null;
+    const L = p.getTotalLength();
+    p.animate(
+      [
+        { strokeDashoffset: getComputedStyle(p).strokeDashoffset },
+        { strokeDashoffset: L },
+      ],
+      { duration: 300, easing: LOOP_EASE, fill: "forwards" }
+    ).onfinish = () => p.remove();
+    p.animate([{ opacity: 1 }, { opacity: 0 }], {
+      duration: 300,
+      fill: "forwards",
+    });
   };
 
   const points: Point[] = [
@@ -152,9 +242,25 @@ export default function ContactFormSection() {
           </div>
         </div>
         <div className="w-full lg:mt-auto mt-15 mb-7 flex sm:flex-row flex-col items-center">
-          {/* CORIT LOGO */}
-          <a href="https://karafco.ru" className="footer-logo" target="_blank">
-            MADE BY <span>KARAF</span>
+          {/* LUMAKO CREDIT */}
+          <a
+            ref={creditRef}
+            href="https://lumako.ru"
+            className="lumako-credit"
+            target="_blank"
+            rel="noopener"
+            onMouseEnter={drawLoop}
+            onMouseLeave={undrawLoop}
+          >
+            <span className="lumako-credit-mark">
+              Lumako<span className="lumako-credit-dot">.</span>
+            </span>
+            {/* Marker-loop layer: the hand-drawn loop is generated on hover */}
+            <svg
+              ref={loopLayerRef}
+              aria-hidden="true"
+              className="lumako-credit-loop"
+            />
           </a>
           <div className="social-media sm:ml-auto sm:mt-0 mt-5">
             {/* Telegram */}
