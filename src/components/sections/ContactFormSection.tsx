@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
 import LeafletMap, { type Point } from "./LeafletMap";
+import { asset } from "@/lib/basePath";
 
 /* Lumako marker loop — deterministic wobble ellipse smoothed via Catmull-Rom,
    same numbers and pen ease as the Cursor.tsx loop on lumako.ru */
@@ -270,7 +271,7 @@ export default function ContactFormSection() {
               target="_blank"
             >
               <img
-                src="/social/telegram.svg"
+                src={asset("/social/telegram.svg")}
                 alt="Telegram"
                 className="h-[47px] w-[47px]"
               ></img>
@@ -282,7 +283,7 @@ export default function ContactFormSection() {
               target="_blank"
             >
               <img
-                src="/social/instagram.svg"
+                src={asset("/social/instagram.svg")}
                 alt="Instagram"
                 className="h-[60px] w-[60px]"
               ></img>
@@ -294,7 +295,7 @@ export default function ContactFormSection() {
               target="_blank"
             >
               <img
-                src="/social/whatsapp.svg"
+                src={asset("/social/whatsapp.svg")}
                 alt="Whatsapp"
                 className="h-[46px] w-[46px]"
               ></img>

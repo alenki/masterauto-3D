@@ -17,6 +17,7 @@ import {
   LinearMipmapLinearFilter,
   LinearFilter,
 } from "three";
+import { asset } from "@/lib/basePath";
 
 interface CarModelProps {
   bodyColor: string;
@@ -49,7 +50,7 @@ export default function InteractiveCarModel({
   scrollProgress = 0,
   onLoaded,
 }: CarModelProps) {
-  const { scene } = useGLTF("/models/car.glb");
+  const { scene } = useGLTF(asset("/models/car.glb"));
   useEffect(() => {
     if (scene && onLoaded) {
       onLoaded();
